@@ -1,0 +1,25 @@
+<import src='../template/template' />
+<view class='companyDetail'>
+    <template is='company' data='{{show}}'></template>
+      <view class="page-body">
+    <view class="page-section page-section-spacing swiper">
+      <swiper indicator-dots="{{true}}"
+        autoplay="{{true}}" interval="5000" duration="500">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item {{item}}">
+
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      </view>
+    </view>
+    <template is='detail'></template>
+    <view class='hotjob flex_between_v'>
+        <view class='title'>热招岗位</view>
+        <view class='more'>更多</view>
+    </view>
+    <template is='job'></template>
+
+</view>

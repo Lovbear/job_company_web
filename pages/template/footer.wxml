@@ -1,0 +1,7 @@
+<template name="footer">
+  这是底部footer1
+</template>
+
+<template name="footer2">
+  这是底部footer2 {{text}}
+</template>

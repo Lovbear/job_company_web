@@ -1,0 +1,65 @@
+<template name='search'>
+  <view class='search'>
+    <icon type="search" size="28" class="search-icon"/>
+    <input class="weui-input searchinput" 
+     placeholder="搜索企业"/>
+  </view>
+</template>
+
+<template name='confrimbox'>
+    <view class="modal">
+        <view class='modal-body'>
+              <view class='title'>提示</view>
+              <view class="msg">
+                  您未填写求职信息，无法进行投递
+              </view>
+              <view class='footer'>填写个人简历</view>
+        </view>
+    </view>
+</template>
+
+<template name='job'>
+   <view class="job">
+        <view class="flex_between">
+            <view class="job-info">
+                <view class='title'>
+                  {{item.postName}}
+                </view>
+                <view class='info'>
+                    <text class="item" wx:for="{{item.label}}" wx:for-item="it" wx:for-index='i' wx:key="i">{{it}}</text>
+                </view>
+            </view>
+            <view class="salary">
+                {{item.price}}
+            </view>
+        </view>
+    </view>
+</template>
+
+<template name="company">
+  <view class="company flex_between_v">
+      <view class="flex_start_v">
+          <view class="pic">
+            <image src="" class="img-response"></image>
+          </view>
+          <view class="Info">
+            <view class="title">杭州白鸟科技有限公司</view>
+            <view class="label flex_start_v">
+                <view class="item">移动互联网</view>
+                <view class="item">已上市</view>
+                <view class="item">100-999人</view>
+            </view>
+          </view>
+        </view>
+        <view class="right-arrow" wx:if="{{show}}"></view>
+    </view>
+</template>
+
+<template name='detail'>
+    <view class="detail">
+        <view class="title">公司介绍</view>
+        <view class='info'>
+            白鸟团队于2015年组建，专注于区块链技术应用融合进产业和实际场景，现已在数据安全与共享、供应链金融、正品校验（溯源）、行为记录（溯源）、版权确权（存证）等场景提供服务，且已生成平台层可复制化推动。
+        </view>
+    </view>
+</template>

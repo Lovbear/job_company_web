@@ -1,0 +1,27 @@
+<import src='../template/template' />
+<view class="jobdetail">
+    <template is='job'></template>
+    <view class="detail">
+        <view class="title">
+            岗位介绍
+        </view>
+        <view class="d-detail">
+          <view class="list">
+              1、 根据产品功能需求设计完成产品的架构设计、概要设计、详细设计以及编码、测试、故障排除等
+          </view>
+           <view class="list">
+              2、 负责制定开发计划，负责前端和后端技术实施的整体架构，提供前端与后端技术应用解决方案；
+          </view>
+           <view class="list">
+              3、 负责与产品人员沟通需求并实现产品功能；
+          </view>
+          <view class="list">
+              4、 开发过程中解决关键问题和技术难题。
+          </view>
+        </view>
+    </view>
+    <template is='company' data='{{show}}'></template>
+    <view>
+        <view class="big_btn" bindtap="primary">立即投递</view>
+    </view>
+</view>

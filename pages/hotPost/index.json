@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "热招岗位",
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance":50
+}

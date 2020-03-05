@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+    <view class='companyPic'>
+        <view>
+           <image src="" class="comPic"></image> 
+        </view>
+        <view class="companyName">
+            公司名称
+        </view>
+    </view>
+    <view class="detail">
+      <view class="list flex_start_v" bindtap="toWanted">
+          <view class="imgbox">
+            <image src="../static/ic_appyjob.png" class="img-response"></image>
+          </view>
+          <view class="info">我是求职者</view>
+      </view>
+      <view class="list flex_start_v" bindtap="toRecruit">
+          <view class="imgbox">
+            <image src="../static/ic_appyjob.png" class="img-response"></image>
+          </view>
+          <view class="info">我是招聘者</view>
+      </view>
+    </view>
+</view>

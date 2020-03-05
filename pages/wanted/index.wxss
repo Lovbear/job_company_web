@@ -1,0 +1,84 @@
+/* pages/wanted/index.wxss */
+
+.wanted{
+  margin-top:60rpx; 
+}
+
+.flex_start_v{
+  display: flex;
+  align-items: center;
+}
+
+.list{
+    padding:32rpx 0;
+    margin: 0 30rpx;
+}
+
+.list .pic{
+  margin-right: 36rpx;
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  background: #ff4547;
+}
+
+.list .pic .comPic{
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.list .company .title{
+  margin-bottom: 8rpx;
+  font-size:36rpx;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  font-weight:600;
+  color:rgba(51,51,51,1);
+}
+.list .company .info{
+    font-size:26rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+}
+
+.list .bottom{
+    margin-top: 40rpx;
+    font-size:26rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+}
+
+.list .bottom .label{
+    width:150rpx;
+}
+
+.list .bottom .label-item{
+    position: relative;
+    padding: 0 16rpx;
+}
+.list .bottom .label-item::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-left:1px solid rgba(216,216,216,1);
+}
+
+.job{
+   margin-top: 28rpx;
+}
+
+.jop-list{
+    padding: 6rpx 18rpx;
+    background:rgba(237,255,249,1);
+    border-radius:21rpx;
+    font-size:26rpx;
+    font-family:PingFangSC-Semibold,PingFang SC;
+    font-weight:600;
+    color:rgba(18,200,135,1);
+    margin-right: 12rpx;
+}
+
+
