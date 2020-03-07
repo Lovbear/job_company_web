@@ -1,0 +1,33 @@
+/* pages/proDetail/index.wxss */
+
+.list{
+    padding:20rpx 30rpx;
+    position: relative;
+}
+.list::after{
+  content:"";
+  position: absolute;
+  left: -30rpx;
+  right: -30rpx;
+  bottom: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.list .label{
+    font-size:34rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(0,0,0,0.85);
+}
+
+.list .val{
+    font-size:34rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(0,0,0,0.85);
+}
+
+.list .picHeader{
+    width: 106rpx;
+    height: 106rpx;
+}

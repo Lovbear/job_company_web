@@ -1,0 +1,11 @@
+.hotPost{
+  padding: 0 30rpx;
+}
+.intro {
+  margin: 30px;
+  text-align: center;
+}
+
+.trans {
+  transition: .2s;
+}

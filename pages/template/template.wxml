@@ -1,8 +1,16 @@
 <template name='search'>
-  <view class='search'>
-    <icon type="search" size="28" class="search-icon"/>
-    <input class="weui-input searchinput" 
-     placeholder="搜索企业"/>
+  <view class="topBar flex_start_v">
+    <view class="location flex_start_v">
+        <view class="icon">
+          <image src="../static/images/ic_location.png" class="icon_img"></image>
+        </view>
+        <view class='cityName'>杭州</view>
+    </view>
+    <view class='search'>
+      <icon type="search" size="28" class="search-icon"/>
+      <input class="weui-input searchinput" 
+      placeholder="搜索企业"/>
+    </view>
   </view>
 </template>
 
@@ -18,20 +26,91 @@
     </view>
 </template>
 
+<template name='user'>
+   <view class="user" bindtap="toDetail">
+      <view class="flex_between">
+          <view class='flex_start_v'>
+          <view class="pic">
+              <image src="" class="userHeader"></image>
+          </view>
+          <view class="user-info">
+              <view class='top flex_start_v'>
+                <view class='title'>{{item.postName}}</view>
+                <view class='status'>
+                  <text class="dot"></text>
+                    {{item.status?"上线":"下线"}}</view>
+              </view>
+              <view class='info'>
+                  <text class="item" wx:for="{{item.label}}" wx:for-item="it" wx:for-index='i' wx:key="i">{{it}}</text>
+              </view>
+              <view class="tel" wx:if="{{item.tel}}">
+                  联系方式：{{item.tel}}
+              </view>
+          </view>
+          </view>
+          <view class="salary">
+              离职-随时到岗
+          </view>
+      </view>
+      <view class="footer flex_start_v">
+        <view class="labelName">
+            求职意向
+        </view>
+        <view class="labelValue">
+          java开发*20-50K
+        </view>
+         <view class="labelValue">
+          杭州
+        </view>
+      </view>
+      <view class="hasface flex_between" wx:if='{{item.hasFace}}'>
+          <view class="left">
+            <view class="facejob">
+                {{item.hasFace.title}}
+            </view>
+            <view class="facetime">
+                <image src="../static/images/ic_clock.png" class="icon_time"></image>
+                {{item.hasFace.time}}
+            </view>
+          </view>
+           <view class="right">
+            <view class="faceStatus">
+                {{item.hasFace.status==1?"待面试":"已面试"}}
+            </view>
+            <view class="order">
+                当前排{{item.hasFace.order}}号
+            </view>
+          </view>
+      </view>
+      <view class='greyLine'></view>
+   </view>
+</template>
+
 <template name='job'>
    <view class="job">
         <view class="flex_between">
             <view class="job-info">
-                <view class='title'>
-                  {{item.postName}}
+                <view class="flex_start_v">
+                  <view class='title'>
+                    {{item.postName}}
+                  </view>
+                  <view class="salary" wx:if="{{item.islink}}">
+                  {{item.price}}
+                  </view>
                 </view>
                 <view class='info'>
                     <text class="item" wx:for="{{item.label}}" wx:for-item="it" wx:for-index='i' wx:key="i">{{it}}</text>
                 </view>
             </view>
-            <view class="salary">
+            <view class="salary" wx:if="{{!item.islink}}">
                 {{item.price}}
             </view>
+            <view class="right-arrow grey" wx:if="{{item.islink}}">
+                
+            </view>
+        </view>
+        <view class="greyInfo" wx:if="{{item.order}}">
+            正在排队面试，当前序列为{{item.order}}
         </view>
     </view>
 </template>
@@ -62,4 +141,102 @@
             白鸟团队于2015年组建，专注于区块链技术应用融合进产业和实际场景，现已在数据安全与共享、供应链金融、正品校验（溯源）、行为记录（溯源）、版权确权（存证）等场景提供服务，且已生成平台层可复制化推动。
         </view>
     </view>
+</template>
+
+<template name='vedio'>
+   <view class="vedioBox">
+      <view class="vedio">
+       
+<video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" controls bindended='bindended' bindpause='bindpause'  show-center-play-btn="{{false}}" object-fit='cover'>
+      <cover-view class="video_cover" wx:if="{{isShow}}" bindtap="bindplay">
+        <cover-image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583392211457&di=0c92a1e1e46de3e2e6dbaf3ed5e1042a&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F0dd7912397dda144dac4acc9b2b7d0a20df486f8.jpg" mode="widthFix"></cover-image>
+        <cover-image src="../static/images/play.png" mode="widthFix" class="video_play_icon"></cover-image>
+        <cover-view class="vedio-msg">介绍视频</cover-view>
+        <cover-view class="video_bg_black">
+        </cover-view>
+      </cover-view>
+          
+      </video>
+      </view>
+      <view class="proInfo">
+           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXs
+      </view>
+   </view>
+</template>
+
+<template name="companyInfo">
+      <view class='list' bindtap="toDetail" data-id='1'>
+        <view class='top flex_start_v'>
+            <view class="pic">
+                <image src="" class='comPic'></image>
+            </view>
+            <view class="company">
+                <view class="title">
+                    杭州白鸟科技有限公司
+                </view>
+                <view class='info'>
+                    杭州白鸟科技有限公司是致力于智能穿行设备开发的公司，我们成立于1990年，我们具备…
+                </view>
+            </view>
+        </view>
+        <view class="bottom">
+            <view class="pro flex_start_v">
+                <view class="label">
+                    移动互联网
+                </view>
+                <view class='label-item'>
+                    以上市
+                </view>
+            </view>
+            <view class='job flex_start_v'>
+                 <view class="label">
+                    职位热招：
+                </view>
+                <view class='jop-list'>
+                    产品经理
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+<template name='list-item'>
+  <view class="list-item flex_between_v">
+      <view class="left">
+          <image src="{{item.iconPath}}" class="icon_menu"></image>
+          {{item.label}}
+      </view>
+      <view class="right-arrow"></view>
+  </view>
+</template>
+
+<template name="userHr">
+  <view class="flex_between userHr">
+      <view class="flex_start_v">
+        <view class="pic">
+            <image src="" class="picHeader"></image>
+        </view>
+        <view class="userInfo">
+            <view class="flex_start_v">
+              <view class="name">远远</view>
+              <view class="lable">HR</view>
+            </view>
+            <view class="info flex_start_v">
+                <view class="list">
+                    <image src="{{isMember?'../static/images/ic_phone.png':'../static/images/ic_tel.png'}}" class="icon_contact"></image>
+                    13876890987
+                </view>
+                <view class="list">
+                    <image src="{{isMember?'../static/images/ic_email_grey.png':'../static/images/ic_email.png'}}" class="icon_contact"></image>
+                    1111@qq.com
+                </view>
+            </view>
+       
+       
+       
+        </view>
+      </view>
+      <view class="right-arrow" wx:if='{{!isMember}}'></view>
+      <view class="fontBlue" wx:if='{{isMember}}'>一级权限</view>
+  </view>
 </template>

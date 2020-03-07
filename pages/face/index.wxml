@@ -1,0 +1,22 @@
+<import src='../template/template' />
+<view class='face'>
+  <view class="navBar flex_start_center c">
+      <view class="f1 {{index==curIndex?'active':''}}" wx:for="{{navlist}}">
+          {{item}}
+      </view>
+  </view>
+    <view class="refresh">
+        下拉刷新
+    </view>
+  <view class='pd30 content'>
+    <view wx:if='curIndex==0'>
+        <template is='user' wx:for="{{listDate}}" data="{{item}}"></template>
+    </view>
+    <view wx:if='curIndex==1'>
+    
+    </view>
+    <view wx:if='curIndex==2'>
+    
+    </view>
+  </view>
+</view>

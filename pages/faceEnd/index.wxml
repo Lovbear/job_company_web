@@ -1,0 +1,42 @@
+<view class="faceEnd">
+  <view class="title">
+    面试结果
+  </view>
+  <view class="radioGroup">
+    <radio-group class="radio-group flex_start_center" bindchange="radioChange">
+      <radio class="radio f1" wx:for-items="{{items}}" wx:key="name" value="{     {item.name}}" checked="{{item.checked}}">
+          <text>{{item.value}}</text>
+      </radio>
+     </radio-group>
+  </view>
+
+   <view class="title">
+    面试转接
+  </view>
+  <view class="radioGroup">
+    <radio-group class="radio-group flex_start_center" bindchange="radioChange">
+      <radio class="radio f1" wx:for-items="{{facelist}}" wx:key="name" value="{     {item.name}}" checked="{{item.checked}}">
+          <text>{{item.value}}</text>
+      </radio>
+     </radio-group>
+  </view>
+
+  <view class="title">
+    到岗保证金
+  </view>
+  <view class="radioGroup">
+    <radio-group class="radio-group flex_start_center" bindchange="radioChange">
+      <radio class="radio f1" wx:for-items="{{money}}" wx:key="name" value="{     {item.name}}" checked="{{item.checked}}">
+          <text>{{item.value}}</text>
+      </radio>
+     </radio-group>
+  </view>
+
+  <view class="title">备注</view>
+  <view>
+     <textarea class="textarea"  placeholder="请输入" />
+  </view>
+  <view class="footer">
+      <button type="primary" class="bigGreen">确定</button>
+  </view>
+</view>

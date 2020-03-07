@@ -8,7 +8,15 @@ Page({
    */
   data: {
     noCard:false,
-    hasMoreData:false
+    hasMoreData:false,
+    datalist: [
+      {
+        postName: "吴南",
+        label: ["男", "25岁", "3年经验"],
+        status: "在线",
+        jobstatus:'离职-随时到岗'
+      }
+    ]
   },
 
   /**
@@ -68,8 +76,9 @@ Page({
   },
 
   toDetail(e){
+    console.log(121)
     wx.navigateTo({
-      url: '/pages/jopDetail/index?id' + e.currentTarget.dataset.id
+      url: '/pages/jobhunter/index?id' + e.currentTarget.dataset.id
     })
   }
 })

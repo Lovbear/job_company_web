@@ -1,0 +1,63 @@
+.mine .top{
+  padding: 0 30rpx;
+  height:204rpx;
+  background:rgba(76,195,168,1);
+}
+
+.mine .top .picHeader{
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 18rpx;
+  background: #ff4547;
+}
+
+.mine .top .userInfo .name{
+  font-size:36rpx;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  font-weight:600;
+  color:rgba(255,255,255,1);
+}
+.mine .top .userInfo .lable{
+  margin-left: 18rpx;
+  width:78rpx;
+  height:39rpx;
+  line-height: 39rpx;
+  text-align: center;
+  background:rgba(192,235,243,1);
+  border-radius:5rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(18,160,128,1);
+}
+
+.mine .top .userInfo .info{
+  margin-top: 12rpx;
+}
+
+.mine .top .userInfo .info .list{
+  margin-right: 52rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+}
+
+.mine .top .userInfo .info .list .icon_contact{
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.mine .top .right-arrow{
+    margin-top:40rpx;
+}
+
+.mine .top .right-arrow::after{
+  border-color: #fff;
+}
+
+.mine .menu{
+  margin-top: 24rpx;
+}

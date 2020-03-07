@@ -1,7 +1,8 @@
 /* pages/wanted/index.wxss */
 
 .wanted{
-  margin-top:60rpx; 
+  margin-top: 100rpx;
+  padding: 0 30rpx;
 }
 
 .flex_start_v{
@@ -12,14 +13,6 @@
 .list{
     padding:32rpx 0;
     margin: 0 30rpx;
-}
-
-.list .pic{
-  margin-right: 36rpx;
-  width: 130rpx;
-  height: 130rpx;
-  border-radius: 50%;
-  background: #ff4547;
 }
 
 .list .pic .comPic{

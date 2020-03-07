@@ -1,36 +1,59 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/company/index",
-    "pages/wanted/index",
-    "pages/face/index",
-    "pages/mine/index",
+    "pages/myParse/index",
+    "pages/proDetail/index",
+    "pages/companyMember/index",
+    "pages/policy/index",
+    "pages/jobhunter/index",
     "pages/jopDetail/index",
-    "pages/hotPost/index"
+    "pages/company/index",
+    "pages/mine/index",
+    "pages/face/index",
+    "pages/wanted/index",
+    "pages/hotPost/index",
+    "pages/faceEnd/index",
+    "pages/faceDetail/index",
+    "pages/recruitlist/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50
+  },
+  "permission":{
+      "scope.userLocation":{
+        "desc":"你的位置信息将用于小程序位置接口的效果展示"
+      }
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "tabBar":{
       "list":[
         {
+          "pagePath": "pages/policy/index",
+          "iconPath": "pages/static/images/footIcon/ic_policy_n.png",
+          "selectedIconPath": "pages/static/images/footIcon/ic_policy_h.png",
+          "text": "政策"
+        },
+        {
           "pagePath":"pages/wanted/index",
-          "iconPath":"pages/static/images/footIcon/ic_wanted_actived.png",          "selectedIconPath":"pages/static/images/footIcon/ic_wanted_actived.png",
-          "text":"求职"
+          "iconPath": "pages/static/images/footIcon/ic_apply_n.png",
+          "selectedIconPath": "pages/static/images/footIcon/ic_apply_h.png",
+          "text":"招聘"
         },
         {
           "pagePath": "pages/face/index",
-          "iconPath":"pages/static/images/footIcon/ic_face.png",
+           "iconPath":"pages/static/images/footIcon/ic_interview_n.png",  
+          "selectedIconPath":"pages/static/images/footIcon/ic_interview_h.png", 
           "text": "面试"
         },
         {
           "pagePath": "pages/mine/index",
-          "iconPath": "pages/static/images/footIcon/ic_mine.png",
+          "iconPath": "pages/static/images/footIcon/ic_me_n.png",
+          "selectedIconPath": "pages/static/images/footIcon/ic_me_h.png",
           "text": "我的"
         }
       ]

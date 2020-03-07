@@ -1,0 +1,33 @@
+<view class='myParse'>
+    <view class="top">
+        <view class="s_title">
+            可用余额
+        </view>
+        <view class="money">
+          9.99
+        </view>
+        <view class="frozen">冻结金额：100.00 ¥</view>
+    </view>
+    <view class="type flex_start_center">
+        <view class="f1">
+          <view class="withdraw">提现</view>
+        </view>
+         <view class="f1">
+          <view class="recharge">充值</view>
+        </view>
+    </view>
+    <view class="capital">
+        <view class="title">资金记录</view>
+        <view class="recond">
+            <view class="flex_between_v item">
+                <view class="left">
+                  <view class='item_title'>充值</view>
+                  <view class="item_time">2019-02-14 14:00:00</view>
+                </view>
+                <view class="right">
+                  <view class='money'>+10000 ¥</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

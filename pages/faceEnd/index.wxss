@@ -1,0 +1,44 @@
+.flex_start_center .f1 {
+  text-align: left;
+}
+
+.faceEnd{
+  padding: 0 30rpx;
+}
+
+.faceEnd .title{
+  padding: 40rpx 0;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(0,0,0,0.85);
+  line-height:30rpx;
+}
+.faceEnd .radioGroup{
+    font-size:30rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(0,0,0,0.85);
+    line-height:30rpx;
+    margin-bottom:20rpx;
+}
+
+.textarea{
+  padding: 24rpx;
+  width: 640rpx;
+  height:280rpx;
+  background:rgba(255,255,255,1);
+  border-radius:12rpx;
+  opacity:0.7;
+  border:1px solid rgba(151,151,151,1);
+  font-size:34rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  line-height:34rpx;
+}
+
+.bigGreen{
+  margin-top:44rpx; 
+  width: 690rpx !important;
+  background:#00B38A;
+}

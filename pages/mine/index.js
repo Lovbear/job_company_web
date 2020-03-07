@@ -4,7 +4,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+      menuList:[
+        {
+          label:"我的钱包",
+          iconPath: "../static/images/mine/ic_parse.png"
+        },
+        {
+          label: "公司信息",
+          iconPath: "../static/images/mine/ic_msg.png"
+        },
+        {
+          label: "公司成员",
+          iconPath: "../static/images/mine/ic_company.png"
+        },
+        {
+          label: "招聘列表",
+          iconPath: "../static/images/mine/ic_list.png"
+        }
+      ]
   },
 
   /**

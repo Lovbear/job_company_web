@@ -1,0 +1,43 @@
+<!--pages/proDetail/index.wxml-->
+<view class="proDetail">
+    <view class="flex_between_v list">
+      <view class="label">
+          头像
+      </view>
+      <view class="val">
+        <image class="picHeader" src=''></image>
+      </view>
+    </view>
+     <view class="flex_between_v list">
+      <view class="label">
+          姓名
+      </view>
+      <view class="val">
+          高XX
+      </view>
+    </view>
+     <view class="flex_between_v list">
+      <view class="label">
+          公司
+      </view>
+      <view class="val">
+          杭州白鸟科技有限公司
+      </view>
+    </view>
+    <view class="flex_between_v list">
+      <view class="label">
+          职位
+      </view>
+      <view class="val">
+          高级主管
+      </view>
+    </view>
+    <view class="flex_between_v list">
+      <view class="label">
+          邮箱
+      </view>
+      <view class="val">
+          111@qq.com
+      </view>
+    </view>
+</view>

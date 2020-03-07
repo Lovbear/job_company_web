@@ -1,0 +1,43 @@
+.hotPost{
+  padding: 0 30rpx;
+}
+.intro {
+  margin: 30px;
+  text-align: center;
+}
+
+.trans {
+  transition: .2s;
+}
+.userHr{
+  position: relative;
+  padding: 20rpx 0;
+}
+
+.userHr::after{
+  content: '';
+  position: absolute;
+  left: -30rpx;
+  right: -30rpx;
+  bottom: 0;
+  border-bottom:1px solid rgba(0,0,0,0.15);
+}
+
+.userHr .userInfo .name{
+    color: #333;
+}
+
+.userHr .userInfo .info .list{
+  color:rgba(0,0,0,0.85);
+}
+
+.userHr .userInfo .info .list:last-child{
+  margin-right: 0;
+}
+
+.fontBlue{
+    font-size:26rpx;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:rgba(0,179,138,1);
+}

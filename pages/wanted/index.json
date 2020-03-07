@@ -1,6 +1,4 @@
 {
-  "navigationBarTitleText": "求职",
-  "usingComponents": {},
-  "enablePullDownRefresh": true,
-  "onReachBottomDistance": 50
+  "navigationBarTitleText": "招聘",
+  "usingComponents": {}
 }

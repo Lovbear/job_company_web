@@ -1,0 +1,35 @@
+<import src='../template/template' />
+<view class='companyDetail'>
+    <template is='user' wx:for="{{listDate}}" data="{{item}}"></template>
+    <view class="page-body">
+        <template is="vedio" data="{{isShow}}"></template>
+     </view>
+    <view class='hotjob flex_between_v'>
+        <view class='title'>教育信息</view>
+        <view class='more'></view>
+    </view>
+    <view class="eduInfo">
+      <view class="flex_between_v">
+        <view>杭州大学</view>
+        <view class="post">硕士</view>
+      </view>
+      <view class="flex_between_v info">
+        <view>计算机应用技术</view>
+        <view>2009.9-2013.9</view>
+      </view>
+    </view>
+     <view class='hotjob flex_between_v'>
+        <view class='title'>工作经历</view>
+    </view>
+    <view class="eduInfo">
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    </view>
+    <view class='hotjob flex_between_v'>
+        <view class='title'>求职意向</view>
+        <view class='more'>更多</view>
+    </view>
+    <template is='job' wx:for="{{datalist}}" data="{{item}}"></template>
+    <view class="foote">
+      <button class="bigGreen">发送面试邀请</button>
+    </view>
+</view>

@@ -4,7 +4,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+      navlist:[
+        "待面试","已邀请","已结束"
+      ],
+      curIndex:0,
+      listDate:[
+        {
+          pic:"",
+          postName: "吴南",
+          label: ["男", "25岁", "3年经验"],
+          status: "在线",
+          jobstatus: '离职-随时到岗',
+          hasFace:{
+            title:"面试java开发工程师*18K-20K",
+            time:"2020.02.02 12：00：00 ",
+            status:1,
+            order:1
+          }
+        }
+      ]
   },
 
   /**
@@ -61,5 +79,12 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+
+  toDetail(e){
+    console.log(e);
+    wx.navigateTo({
+      url: '/pages/faceDetail/index?id' + e.target.id
+    })
   }
 })

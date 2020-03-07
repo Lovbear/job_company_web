@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "公司成员",
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance":50
+}

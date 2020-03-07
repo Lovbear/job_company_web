@@ -1,0 +1,23 @@
+.navBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  font-size:34rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  background: #fff;
+}
+
+.navBar .f1{
+    padding: 32rpx 0 28rpx;
+}
+.navBar .f1.active{
+  color: #00B38A;
+  border-bottom: 4px solid #00B38A;
+}
+
+.refresh{
+  margin-top:60rpx; 
+} 

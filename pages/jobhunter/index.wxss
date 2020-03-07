@@ -1,0 +1,58 @@
+.companyDetail{
+    padding: 0 30rpx;
+}
+
+.hotjob{
+  margin-top: 32rpx;
+}
+
+.hotjob .title{
+  font-size:34rpx;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  font-weight:600;
+  color:rgba(51,51,51,1);
+}
+
+.hotjob .more{
+  padding: 20rpx 0;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+
+.eduInfo{
+  padding: 16rpx 0 24rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  border-bottom: 2rpx solid rgba(0,0,0,0.15);
+}
+.eduInfo .post{
+  font-weight:600;
+  color: #000;
+}
+
+.eduInfo .info{
+  margin-top: 12rpx;
+  font-size:22rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+
+.foote{
+ margin: 0 -30rpx;
+}
+.bigGreen{
+  width:750rpx !important;
+  height:98rpx;
+  background:rgba(0,179,138,1);
+  font-size:34rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:60rpx;
+  border-radius: 0;
+}
