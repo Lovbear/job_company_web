@@ -1,10 +1,10 @@
 <import src='../template/template' />
 <view class='companyDetail'>
-    <template is='user' wx:for="{{listDate}}" data="{{item}}"></template>
+    <template is='user' wx:for="{{listDate}}" data="{{item,pageSouce}}"></template>
     <view class="page-body">
         <template is="vedio" data="{{isShow}}"></template>
      </view>
-    <view class='hotjob flex_between_v'>
+    <!-- <view class='hotjob flex_between_v'>
         <view class='title'>教育信息</view>
         <view class='more'></view>
     </view>
@@ -17,7 +17,7 @@
         <view>计算机应用技术</view>
         <view>2009.9-2013.9</view>
       </view>
-    </view>
+    </view> -->
      <view class='hotjob flex_between_v'>
         <view class='title'>工作经历</view>
     </view>

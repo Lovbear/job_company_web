@@ -36,23 +36,33 @@
           <view class="user-info">
               <view class='top flex_start_v'>
                 <view class='title'>{{item.postName}}</view>
-                <view class='status'>
+                <view class='status' wx:if='{{pageSouce!=="hunter"}}'>
                   <text class="dot"></text>
                     {{item.status?"上线":"下线"}}</view>
               </view>
               <view class='info'>
                   <text class="item" wx:for="{{item.label}}" wx:for-item="it" wx:for-index='i' wx:key="i">{{it}}</text>
               </view>
-              <view class="tel" wx:if="{{item.tel}}">
+              <view class="tel" wx:if="{{item.tel && pageSouce!=='hunter'}}">
                   联系方式：{{item.tel}}
               </view>
           </view>
           </view>
-          <view class="salary">
+          <view wx:if='{{pageSouce=="hunter"}}'>
+             <view class='status'>
+                  <text class="dot"></text>
+                    {{item.status?"上线":"下线"}}</view>
+          </view>
+          <view wx:else>
+              <view class="salary"  wx:if="{{!item.faceTime}}">
               离职-随时到岗
+              </view>
+              <view class="orange"  wx:else>
+                  最近面试次数：23
+              </view>
           </view>
       </view>
-      <view class="footer flex_start_v">
+      <view class="footer flex_start_v" wx:if="{{item.qzyx}}">
         <view class="labelName">
             求职意向
         </view>
@@ -95,14 +105,17 @@
                     {{item.postName}}
                   </view>
                   <view class="salary" wx:if="{{item.islink}}">
-                  {{item.price}}
+                    {{item.price}}
                   </view>
                 </view>
-                <view class='info'>
+                <view class='info' wx:if="{{!item.area}}">
                     <text class="item" wx:for="{{item.label}}" wx:for-item="it" wx:for-index='i' wx:key="i">{{it}}</text>
                 </view>
+                <view class="info area" v-else>
+                  <text class="item">地点：杭州</text>
+                </view>
             </view>
-            <view class="salary" wx:if="{{!item.islink}}">
+            <view class="" wx:if="{{!item.islink}}">
                 {{item.price}}
             </view>
             <view class="right-arrow grey" wx:if="{{item.islink}}">
@@ -158,9 +171,6 @@
           
       </video>
       </view>
-      <view class="proInfo">
-           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXs
-      </view>
    </view>
 </template>
 
@@ -208,6 +218,60 @@
       </view>
       <view class="right-arrow"></view>
   </view>
+</template>
+
+<template name='companyInfo1'>
+   <view class="companyInfo1">
+      <view class="flex_between" bindtap="toDetail">
+          <view class='flex_start_v'>
+          <view class="pic">
+              <image src="{{companyInfo.pic}}" class="userHeader"></image>
+          </view>
+          <view class="user-info">
+              <view class='top flex_start_v'>
+                <view class='title'>{{companyInfo.name}}</view>
+                <view class='status'>
+                  <text class="dot"></text>
+                    {{companyInfo.status?"上线":"下线"}}</view>
+              </view>
+              <view class='info flex_start_v' >
+                  <view class="flex_start_v mr17">
+                    <view class="label mr17">
+                        面试成功率
+                    </view>
+                     <view class="blue">
+                        {{companyInfo.sucessRate}}
+                    </view>
+                  </view>
+                   <view class="flex_start_v">
+                    <view class="label mr17">
+                        面试成功率
+                    </view>
+                     <view class="blue">
+                        {{companyInfo.peopleNum}}人
+                    </view>
+                  </view>
+              </view> 
+          </view>
+          </view>
+          <view class="right-arrow"></view>
+      </view>
+
+       <view class="vedioBox mt20" wx:if="{{companyInfo.vedioShow}}">
+      <view class="vedio">
+       
+<video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" controls bindpause='bindpause'  show-center-play-btn="{{false}}" object-fit='cover'>
+      <cover-view class="video_cover" wx:if="{{!companyInfo.vedioInfo.isplay}}" bindtap="bindplay">
+        <cover-image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583392211457&di=0c92a1e1e46de3e2e6dbaf3ed5e1042a&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F0dd7912397dda144dac4acc9b2b7d0a20df486f8.jpg" mode="widthFix"></cover-image>
+        <cover-image src="../static/images/play.png" mode="widthFix" class="video_play_icon"></cover-image>
+        <cover-view class="video_bg_black">
+        </cover-view>
+      </cover-view>
+          
+      </video>
+      </view>
+   </view>
+   </view>
 </template>
 
 <template name="userHr">

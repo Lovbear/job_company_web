@@ -72,6 +72,11 @@
     background:rgba(0,179,138,1);
 }
 
+.bgblue{
+  color: #fff;
+  background:#0188FB;
+}
+
 .bgsucess{
     color: #49AE97;
     background:rgba(187,238,226,1);
@@ -82,4 +87,8 @@
   background:rgba(238,187,187,1);
 }
 
-
+.icon_footer{
+    padding:4rpx 0;
+    width: 40rpx;
+    height: 40rpx
+}

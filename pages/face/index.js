@@ -15,6 +15,8 @@ Page({
           label: ["男", "25岁", "3年经验"],
           status: "在线",
           jobstatus: '离职-随时到岗',
+          qzyx:true,
+          faceTime:true,
           hasFace:{
             title:"面试java开发工程师*18K-20K",
             time:"2020.02.02 12：00：00 ",
@@ -85,6 +87,11 @@ Page({
     console.log(e);
     wx.navigateTo({
       url: '/pages/faceDetail/index?id' + e.target.id
+    })
+  },
+  tabchange(e){
+    this.setData({
+      curIndex: e.currentTarget.dataset.index
     })
   }
 })

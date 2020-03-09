@@ -1,19 +1,19 @@
 {
   "pages": [
-    "pages/myParse/index",
-    "pages/proDetail/index",
-    "pages/companyMember/index",
-    "pages/policy/index",
-    "pages/jobhunter/index",
-    "pages/jopDetail/index",
-    "pages/company/index",
-    "pages/mine/index",
-    "pages/face/index",
-    "pages/wanted/index",
-    "pages/hotPost/index",
     "pages/faceEnd/index",
     "pages/faceDetail/index",
-    "pages/recruitlist/index"
+    "pages/face/index",
+    "pages/jobhunter/index",
+    "pages/wanted/index",
+    "pages/recruitlist/index",
+    "pages/policy/index",
+    "pages/companyMember/index",
+    "pages/proDetail/index",
+    "pages/hotPost/index", 
+    "pages/myParse/index",
+    "pages/jopDetail/index",
+    "pages/company/index",
+    "pages/mine/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -32,12 +32,6 @@
   "sitemapLocation": "sitemap.json",
   "tabBar":{
       "list":[
-        {
-          "pagePath": "pages/policy/index",
-          "iconPath": "pages/static/images/footIcon/ic_policy_n.png",
-          "selectedIconPath": "pages/static/images/footIcon/ic_policy_h.png",
-          "text": "政策"
-        },
         {
           "pagePath":"pages/wanted/index",
           "iconPath": "pages/static/images/footIcon/ic_apply_n.png",

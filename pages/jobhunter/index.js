@@ -7,6 +7,7 @@ Page({
     background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
     isShow:true,
     videoContext:'',
+    pageSouce:'',
     item:{
       label:'面试时间：每日10:00-17:00',
       iconPath:'../static/images/ic_clock.png'
@@ -25,7 +26,8 @@ Page({
     datalist: [
       {
         postName: "Java开发工程师",
-        label: ["经验3年以上", "本科", "杭州"],
+        label: '',
+        area:'杭州',
         price: "15-25K"
       }
     ]

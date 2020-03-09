@@ -1,7 +1,7 @@
 <import src='../template/template' />
 <view class='face'>
   <view class="navBar flex_start_center c">
-      <view class="f1 {{index==curIndex?'active':''}}" wx:for="{{navlist}}">
+      <view class="f1 {{index==curIndex?'active':''}}" wx:for="{{navlist}}" bindtap="tabchange" data-index="{{index}}">
           {{item}}
       </view>
   </view>

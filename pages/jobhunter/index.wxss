@@ -44,11 +44,13 @@
 
 .foote{
  margin: 0 -30rpx;
+ position: absolute;
+ bottom: 0;
 }
 .bigGreen{
   width:750rpx !important;
   height:98rpx;
-  background:rgba(0,179,138,1);
+  background:#0188FB;
   font-size:34rpx;
   font-family:PingFangSC-Regular,PingFang SC;
   font-weight:400;

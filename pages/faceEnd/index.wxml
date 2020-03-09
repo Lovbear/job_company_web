@@ -4,7 +4,7 @@
   </view>
   <view class="radioGroup">
     <radio-group class="radio-group flex_start_center" bindchange="radioChange">
-      <radio class="radio f1" wx:for-items="{{items}}" wx:key="name" value="{     {item.name}}" checked="{{item.checked}}">
+      <radio color="#0188FB" class="radio f1" wx:for-items="{{items}}" wx:key="name" value="{     {item.name}}" checked="{{item.checked}}">
           <text>{{item.value}}</text>
       </radio>
      </radio-group>
@@ -15,7 +15,7 @@
   </view>
   <view class="radioGroup">
     <radio-group class="radio-group flex_start_center" bindchange="radioChange">
-      <radio class="radio f1" wx:for-items="{{facelist}}" wx:key="name" value="{     {item.name}}" checked="{{item.checked}}">
+      <radio color="#0188FB" class="radio f1" wx:for-items="{{facelist}}" wx:key="name" value="{     {item.name}}" checked="{{item.checked}}">
           <text>{{item.value}}</text>
       </radio>
      </radio-group>
@@ -26,7 +26,7 @@
   </view>
   <view class="radioGroup">
     <radio-group class="radio-group flex_start_center" bindchange="radioChange">
-      <radio class="radio f1" wx:for-items="{{money}}" wx:key="name" value="{     {item.name}}" checked="{{item.checked}}">
+      <radio color="#0188FB" class="radio f1" wx:for-items="{{money}}" wx:key="name" value="{     {item.name}}" checked="{{item.checked}}">
           <text>{{item.value}}</text>
       </radio>
      </radio-group>
@@ -37,6 +37,6 @@
      <textarea class="textarea"  placeholder="请输入" />
   </view>
   <view class="footer">
-      <button type="primary" class="bigGreen">确定</button>
+      <button class="bigblue">确定</button>
   </view>
 </view>

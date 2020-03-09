@@ -35,17 +35,13 @@
       </view>
     </view>
     <view class="footerBar flex_start_center">
-        <view class="f1 bggreen">
+        <view class="f1 bgError">
+          <image src="../static/images/ic_inject.png" class="icon_footer1"></image>
+          放弃面试
+        </view>
+        <view class="f1 bgblue">
           <image src="../static/images/ic_face.png" class="icon_footer"></image>
           视频面试
-        </view>
-        <view class="f1 bgsucess">
-          <image src="../static/images/ic_pass.png" class="icon_footer"></image>
-          面试完成
-        </view>
-        <view class="f1 bgError">
-          <image src="../static/images/ic_inject.png" class="icon_footer"></image>
-          拒绝预约
         </view>
     </view>
 </view>

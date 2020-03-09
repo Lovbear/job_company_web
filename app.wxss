@@ -215,13 +215,15 @@
 }
 
 .job{
+    font-size:26rpx;
     padding: 30rpx 0 40rpx;
     border-bottom: 2rpx solid #F0F0F0;
+    color:rgba(51,51,51,1);
 }
 
 .job .title{
     padding-left: 16rpx;
-    font-size:40rpx;
+    font-size:26rpx;
     font-family:PingFangSC-Semibold,PingFang SC;
     font-weight:600;
     color:rgba(51,51,51,1);
@@ -229,7 +231,7 @@
 
 .job .info{
     margin-top: 30rpx;
-    font-size:26rpx;
+    font-size:22rpx;
     font-family:PingFangSC-Regular,PingFang SC;
     font-weight:400;
     color:rgba(102,102,102,1);
@@ -240,15 +242,23 @@
   border-right: 1px solid #D8D8D8;
 }
 
+.job .info.area{
+    margin-top: 13rpx;
+}
+
+.job .info.area .item{
+  padding: 0 16rpx;
+}
+
 .job .info .item:last-child{
    border-right:none;
 }
 
 .job .salary{
-  font-size:36rpx;
+  font-size:26rpx;
   font-family:PingFangSC-Semibold,PingFang SC;
   font-weight:600;
-  color:rgba(0,179,138,1);
+  color:#333;
 }
 
 .detail .title{
@@ -326,6 +336,8 @@ video{
   padding: 30rpx 0 0;
 }
 
+
+
 .user .status{
     margin-left: 16rpx;
     width:96rpx;
@@ -381,7 +393,7 @@ video{
 }
 
 .user .user-info .info{
-    margin-top:10rpx;
+    margin-top:26rpx;
     font-size:26rpx;
     font-family:PingFangSC-Regular,PingFang SC;
     font-weight:400;
@@ -416,8 +428,8 @@ video{
 .user .footer .labelValue{
     padding: 4rpx 16rpx;
     font-weight:600;
-    color:rgba(18,200,135,1);
-    background:rgba(237,255,249,1);
+    color:#0188FB;
+    background:rgba(237,244,255,1);
     border-radius:3rpx;
     margin-right: 28rpx;
 }
@@ -644,15 +656,22 @@ video{
   font-weight:400;
 }
 .footerBar .icon_footer{
-    width: 56rpx;
-    height: 56rpx;
+    width:56rpx;
+    height:56rpx;
+    vertical-align: middle;
+}
+.footerBar .icon_footer1{
+    width:40rpx;
+    height:40rpx;
     vertical-align: middle;
 }
 
 .footerBar .f1{
-  padding: 20rpx 0;
+  height: 98rpx;
+  line-height: 98rpx;
   text-align: center;
 }
+
 
 radio .wx-radio-input{
 
@@ -734,4 +753,77 @@ radio .wx-radio-input.wx-radio-input-checked::before{
 .userHr .userInfo .info .list .icon_contact{
   width: 28rpx;
   height: 28rpx;
+}
+
+.companyInfo1{
+  padding: 30rpx 0;
+}
+.companyInfo1 .userHeader{
+  margin-right: 30rpx;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+
+.companyInfo1 .title{
+  font-size:34rpx;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  font-weight:600;
+  color:rgba(51,51,51,1);
+}
+
+.companyInfo1 .status{
+    margin-left: 16rpx;
+    width:96rpx;
+    height:44rpx;
+    line-height: 44rpx;
+    text-align: center;
+    background:rgba(255,255,255,1);
+    border-radius:9rpx;
+    border:2rpx solid rgba(151,151,151,1);
+    font-size:22rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+}
+
+.companyInfo1 .status .dot{
+    display: inline-block;
+    width: 12rpx;
+    height: 12rpx;
+    background: #00B38A;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.companyInfo1 .info{
+  margin-top: 10rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}
+
+.mr17{
+  margin-right: 17rpx;
+}
+
+.mt20{
+  margin-top: 20rpx;
+}
+
+.blue{
+  color: #0188FB;
+}
+
+.orange{
+  font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(255,134,45,1);
+  width:246rpx;
+  height:42rpx;
+  background:rgba(255,248,244,1);
+  border-radius:21px;
+  text-align: center;
 }
