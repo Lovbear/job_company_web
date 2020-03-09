@@ -24,7 +24,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.videoContext = wx.createVideoContext('myVideo')
+      this.videoContext = wx.createVideoContext('myVideo')
   },
 
   /**
@@ -74,11 +74,13 @@ Page({
       url: '/pages/jopDetail/index?id' + e.currentTarget.dataset.id
     })
   },
-  bindplay() {
+  bindplay(e) {
     this.setData({
       isShow: false
     })
-    this.videoContext.play();
+    console.log(e.currentTarget.dataset.id)
+    wx.createVideoContext(e.currentTarget.dataset.id).play()
+    
     console.log('play')
   },
   // 监听播放到末尾时触发

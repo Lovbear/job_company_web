@@ -1,8 +1,5 @@
 {
   "pages": [
-    "pages/myParse/index",
-    "pages/proDetail/index",
-    "pages/companyMember/index",
     "pages/policy/index",
     "pages/jobhunter/index",
     "pages/jopDetail/index",
@@ -13,7 +10,10 @@
     "pages/hotPost/index",
     "pages/faceEnd/index",
     "pages/faceDetail/index",
-    "pages/recruitlist/index"
+    "pages/recruitlist/index",
+    "pages/myParse/index",
+    "pages/proDetail/index",
+    "pages/companyMember/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -22,11 +22,6 @@
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 50
-  },
-  "permission":{
-      "scope.userLocation":{
-        "desc":"你的位置信息将用于小程序位置接口的效果展示"
-      }
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
