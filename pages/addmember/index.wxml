@@ -1,0 +1,22 @@
+<!--pages/proDetail/index.wxml-->
+<view class="proDetail">
+     <view class="flex_between_v list" bindtap="toRelax">
+      <view class="label">
+          账号
+      </view>
+      <view class="val">
+          <input bindinput="bindinput" class="textRight" data-item="phone" value="{{userInfo.phone}}"></input>
+      </view>
+    </view>
+         <view class="flex_between_v list" bindtap="toRelax">
+      <view class="label">
+          昵称
+      </view>
+      <view class="val">
+          <input bindinput="bindinput" class="textRight" data-item="nickName" value="{{userInfo.nickName}}"></input>
+      </view>
+    </view>
+    <view class="foote">
+        <button class="blueBtn" bindtap="submit">保存</button>
+    </view>
+</view>

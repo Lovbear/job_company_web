@@ -1,0 +1,15 @@
+<!-- <import src="../template/template" />
+<template is="search"></template> -->
+<import src='../template/template' />
+<template is='search' data="{{type}}"></template>
+<template is='confrimbox' wx:if="{{noCard}}"></template>
+<view class='frim'>
+    <view class="refresh">
+        下拉刷新
+    </view>
+   <template is='companyInfo1' wx:for="{{listdata}}" wx:for-item="companyInfo" data="{{companyInfo,type}}"></template>
+    <view wx:if="{{hasMoreData}}" class="loadmore loading">正在加载中...</view>
+    <view wx:else class="loadmore">没有更多内容了</view>
+</view>  
+<import src='../template/footer' />
+<template is='footer' data="{{footIndex}}"></template>

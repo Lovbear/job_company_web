@@ -1,0 +1,98 @@
+<!--pages/proDetail/index.wxml-->
+<view class="editCompany">
+    <view class="flex_between_v list">
+      <view class="label">
+          LOGO
+      </view>
+      <view class="val">
+        <image class="picHeader" src='{{express.logoImage}}' bindtap="uploadPic"></image>
+      </view>
+    </view>
+     <view class="flex_between_v list">
+      <view class="label">
+          企业类型
+      </view>
+      <view class="val">
+         <input name="label" bindinput="bindInput" data-item="label" value="{{express.label}}" class="textRight" placeholder="例如: 互联网公司"></input>
+      </view>
+    </view>
+     <view class="flex_between_v list">
+      <view class="label">
+          融资状态
+      </view>
+      <view class="val">
+          <picker bindchange="bindStatusChange" value="{{index}}" range="{{statusArr}}" range-key="name" >
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{express.market}}">
+         <text class="name">{{express.market}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+      </view>
+    </view>
+       <view class="flex_between_v list">
+      <view class="label">
+          公司人数
+      </view>
+      <view class="val">
+          <picker bindchange="bindnumberChange" value="{{index}}" range="{{peopleArr}}" range-key="name" >
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{express.scale}}">
+         <text class="name">{{express.scale}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+      </view>
+    </view>
+    <view class="flex_between_v list">
+      <view class="label">
+          面试时间
+      </view>
+      <view class="val">
+            <picker class="flex_start_v" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+     <view class="flex_start_v">
+     <input value='{{express.interviewTime}}' disabled class="textRight"  placeholder='选择时间'/>
+      <view class="icon"><image src="./../static/ic_calendar.png"></image></view>
+     </view>
+    </picker>
+    </view>
+    </view>
+     <view class="greyLine"></view>
+     <view class="upVedio">
+        <view class="title">
+            上传视频
+        </view>
+        <view class="vedioBox">
+            <view class="edit" wx:if='{{express.infoVideo}}' bindtap="upVedio">
+                编辑
+            </view>
+            <video object-fit='cover'  src="{{express.infoVideo}}" wx:if='{{express.infoVideo}}'></video>
+            <view class="upload" bindtap="upVedio" wx:else>
+              <image src="./../static/images/ic_upload.png" class="icon_up"></image>
+                <view class='info'>上传视频</view>
+            </view>
+        </view>
+     </view>
+     <view class="greyLine"></view>
+     <view class="proInfo">
+        <view class="title">
+          公司介绍
+        </view>
+        <view class="textreabox">
+          <textarea class="textrea" bindinput="bindInput" data-item="info" value="{{express.info}}"></textarea>
+        </view>
+     </view>
+</view>
+<view class="fixedfoote">
+  <button class="blueBtn" bindtap="saveCompany">保存</button>
+</view>

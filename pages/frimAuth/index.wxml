@@ -1,0 +1,95 @@
+<view class="publicJob" wx:if="{{type==0}}">
+  <view class='greyLine'></view>
+  <view class="list flex_between_v">
+      <view class='title'>单位名称</view>
+      <view class='val'>
+         <input class="textRight" placeholder="单行输入"></input>
+      </view>
+  </view>
+  <view class="list flex_between_v">
+      <view class='title'>所属级别</view>
+      <view class='val'>
+          <picker bindchange="bindLevelChange" value="{{index}}" range="{{levelArr}}" range-key="name" >
+    <view class="picker">
+      <text class="flex_start_v" wx:if="{{level}}">
+        <text class="name">{{level.name}}</text>
+        <text class="down"></text>  
+      </text>
+      <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择级别</text>
+          <text class="down"></text>
+      </text>
+    </view>
+  </picker>
+      </view>
+  </view>
+  <view class="list flex_between_v jobAddress">
+      <view class='title'>单位地址</view>
+       <view class="val flex_start_v">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{provinceArr}}" range-key="name" >
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{province}}">
+         <text class="name">{{province.name}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择省</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+   <picker wx:if="{{level.type>1}}" bindchange="bindCityChange" value="{{index}}" range="{{cityArr}}" range-key='name'>
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{city}}">
+         <text class="name">{{city.name}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择市</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+   <picker wx:if="{{level.type>2}}" bindchange="bindAreaChange" value="{{index}}" range="{{areaArr}}" range-key='name'>
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{area}}">
+         <text class="name">{{area.name}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择区</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+      </view>
+  </view>
+  <view class="list flex_between_v">
+      <view class='title'>联系人</view>
+      <view class='val'>
+         <input class="textRight" placeholder="单行输入"></input>
+      </view>
+  </view>
+  <view class="list flex_between_v">
+      <view class='title'>联系电话</view>
+      <view class='val'>
+         <input class="textRight" placeholder="单行输入"></input>
+      </view>
+  </view>
+
+  
+  <view class='foote'>
+      <button class="blueBtn">确定提交</button>
+  </view>
+</view>
+
+<view class="examine" wx:else>
+      <view class="status" wx:if="{{type==1}}">
+          <image src="./../static/images/examine.png"></image>
+          <view class="info">审核中</view>
+      </view>
+      <view class="status" wx:else>
+          <image src="./../static/images/alsoAuth.png"></image>
+          <view class="info">已认证</view>
+      </view>
+</view>

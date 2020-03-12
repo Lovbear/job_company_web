@@ -1,0 +1,89 @@
+<view class="publicJob">
+  <view class='greyLine'></view>
+  <view class="list flex_between_v">
+      <view class='title'>岗位名称</view>
+      <view class='val'>
+         <input bindinput="bindinput" data-item="jobTitle" 
+         value="{{job.jobTitle}}" class="textRight"></input>
+      </view>
+  </view>
+  <view class="list flex_between_v jobAddress">
+      <view class='title'>工作地点</view>
+       <view class="val flex_start_v">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{provinceArr}}" range-key="name" >
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{province}}">
+         <text class="name">{{province}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择省</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+   <picker bindchange="bindCityChange" value="{{index}}" range="{{cityArr}}" range-key='name'>
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{city}}">
+         <text class="name">{{city}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择市</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+   <picker bindchange="bindAreaChange" value="{{index}}" range="{{areaArr}}" range-key='name'>
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{area}}">
+         <text class="name">{{area}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择区</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+      </view>
+  </view>
+  <view class="list flex_between_v">
+      <view class='title'>学历要求</view>
+      <view class='val'>
+         <input bindinput="bindinput" data-item="jobEducation" 
+         value="{{job.jobEducation}}" class="textRight"></input>
+      </view>
+  </view>
+  <view class="list flex_between_v">
+      <view class='title'>经验要求</view>
+      <view class='val'>
+         <input bindinput="bindinput" data-item="jobAge" 
+         value="{{job.jobAge}}"  class="textRight"></input>
+      </view>
+  </view>
+  <view class="list flex_between_v">
+      <view class='title'>薪资待遇</view>
+      <view class='inputArr flex_start_v'>
+         <input bindinput="bindinput" data-item="jobSalaryStart" 
+         value="{{job.jobSalaryStart}}" class="textRight"></input>
+         <text>K</text>
+         <text class="line">-</text>
+         <input bindinput="bindinput" data-item="jobSalaryEnd" 
+         value="{{job.jobSalaryEnd}}" class="textRight"></input>
+         <text>K</text>
+      </view>
+  </view>
+  <view class="list">
+      <view class='title'>
+        岗位要求
+      </view>
+      <view>
+        <textarea bindinput="bindinput" data-item="jobInfo" 
+         value="{{job.jobInfo}}" class='textarea' placeholder="多行输入" name="textarea"/>
+      </view>
+  </view>
+  <view class='fixedfoote'>
+      <button class="blueBtn" bindtap="submit">确定发布</button>
+  </view>
+</view>

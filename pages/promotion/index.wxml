@@ -1,0 +1,12 @@
+<view class="promotion">
+  <view class="coder-Img">
+      <image src=""></image>
+      <view class="info">长按保存二维码</view>
+  </view>
+  <view class="share">
+      <view class="title">分享链接</view>
+      <view class="linkbox">
+          https://lanhuapp.com/web/#/item/project/board?pid=b6bfe760-5ef1-4134-b896-d4d3c2bb
+      </view>
+  </view>
+</view>

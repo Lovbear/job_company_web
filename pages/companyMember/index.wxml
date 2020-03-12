@@ -3,8 +3,11 @@
     <view class="refresh">
       下拉刷新
     </view>
-    <template is="userHr" data="{{isMember:true}}"></template>
+    <template is="userHr1" wx:for="{{datalist}}" data="{{item,isMember:true}}"></template>
 
     <view wx:if="{{hasMoreData}}" class="loadmore loading">正在加载中...</view>
     <view wx:else class="loadmore">没有更多内容了</view>
+</view>
+<view class="fixedadd" bindtap="addMember">
+    <image src="./../static/images/icon_add.png"></image>
 </view>

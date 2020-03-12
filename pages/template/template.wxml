@@ -4,12 +4,12 @@
         <view class="icon">
           <image src="../static/images/ic_location.png" class="icon_img"></image>
         </view>
-        <view class='cityName'>杭州</view>
+        <view class='cityName'>{{companyInfo.address?companyInfo.address:''}}</view>
     </view>
     <view class='search'>
       <icon type="search" size="28" class="search-icon"/>
-      <input class="weui-input searchinput" 
-      placeholder="搜索企业"/>
+      <input class="weui-input searchinput" bindinput="searchMember"
+      placeholder="{{type==1?'搜索企业名称':'搜索岗位名称'}}"/>
     </view>
   </view>
 </template>
@@ -26,59 +26,145 @@
     </view>
 </template>
 
-<template name='user'>
-   <view class="user" bindtap="toDetail">
+<template name='user2'>
+   <view class="user" data-item="{{item}}" bindtap="toDetail">
       <view class="flex_between">
           <view class='flex_start_v'>
           <view class="pic">
-              <image src="" class="userHeader"></image>
+              <image src="{{item.cmsResumeVO.image}}" class="userHeader"></image>
           </view>
           <view class="user-info">
               <view class='top flex_start_v'>
-                <view class='title'>{{item.postName}}</view>
-                <view class='status'>
+                <view class='title'>{{item.cmsResumeVO.name}}</view>
+                <view class='status' wx:if='{{pageSouce!=="hunter"}}'>
                   <text class="dot"></text>
-                    {{item.status?"上线":"下线"}}</view>
+                    {{item.cmsResumeVO.online?"上线":"下线"}}</view>
               </view>
               <view class='info'>
-                  <text class="item" wx:for="{{item.label}}" wx:for-item="it" wx:for-index='i' wx:key="i">{{it}}</text>
+                  <text class="item">{{item.cmsResumeVO.gander==1?'男':'女'}}</text>
+                  <text class="item">{{item.cmsResumeVO.age}}岁</text>
               </view>
-              <view class="tel" wx:if="{{item.tel}}">
-                  联系方式：{{item.tel}}
+              <view class="tel" wx:if="{{item.tel && pageSouce!=='hunter'}}">
+                  联系方式：{{item.cmsResumeVO.tel}}
               </view>
           </view>
           </view>
-          <view class="salary">
+          <view wx:if='{{pageSouce=="hunter"}}'>
+             <view class='status'>
+                  <text class="dot"></text>
+                    {{item.cmsResumeVO.online?"上线":"下线"}}</view>
+          </view>
+          <view wx:else>
+              <!-- <view class="salary"  wx:if="{{!item.oldInterviewNumber}}">
               离职-随时到岗
+              </view> -->
+              <view class="{{item.oldInterviewNumber>20?'orange':'grey'}}">
+                  最近面试次数：{{item.cmsResumeVO.oldInterviewNumber?item.cmsResumeVO.oldInterviewNumber:0}}
+              </view>
           </view>
       </view>
       <view class="footer flex_start_v">
         <view class="labelName">
             求职意向
         </view>
-        <view class="labelValue">
-          java开发*20-50K
+        <view class="labelValue" wx:if="{{item.cmsResumeVO.expectPost}}">
+          {{item.cmsResumeVO.expectPost}}
         </view>
-         <view class="labelValue">
-          杭州
+         <view class="labelValue" wx:if="{{item.cmsResumeVO.expectBase}}">
+          {{item.cmsResumeVO.expectBase}}
         </view>
       </view>
-      <view class="hasface flex_between" wx:if='{{item.hasFace}}'>
+      <view class="hasface flex_between_v" >
           <view class="left">
             <view class="facejob">
-                {{item.hasFace.title}}
+                  面试{{item.cmsResumeVO.expectPost}}
             </view>
             <view class="facetime">
                 <image src="../static/images/ic_clock.png" class="icon_time"></image>
-                {{item.hasFace.time}}
+                {{item.cmsResumeVO.createAt}}
             </view>
           </view>
            <view class="right">
             <view class="faceStatus">
-                {{item.hasFace.status==1?"待面试":"已面试"}}
+                已面试
             </view>
-            <view class="order">
-                当前排{{item.hasFace.order}}号
+          </view>
+      </view>
+       <view class="flex_between_v faceResult">
+              <view class="left">
+                  <text>保证金已冻结 ￥50</text>
+                  <text class="{{item.entry.status=='1'?'green':'fontRed'}}">                   {{item.entry.status=='1'?'已到岗':'未到岗'}}
+                  </text>
+              </view>
+              <view class="right">
+                  <image src="../static/images/ic_sucess.png" ></image>         面试通过
+              </view>
+      </view>
+      <view class='greyLine'></view>
+   </view>
+</template>
+
+<template name='user'>
+   <view class="user" data-item='{{item}}' bindtap="toDetail">
+      <view class="flex_between">
+          <view class='flex_start_v'>
+          <view class="pic">
+              <image src="{{item.image}}" class="userHeader"></image>
+          </view>
+          <view class="user-info">
+              <view class='top flex_start_v'>
+                <view class='title'>{{item.name}}</view>
+                <view class='status' wx:if='{{pageSouce!=="hunter"}}'>
+                  <text class="dot"></text>
+                    {{item.online?"上线":"下线"}}</view>
+              </view>
+              <view class='info'>
+                  <text class="item">{{item.gander==1?'男':'女'}}</text>
+                  <text class="item">{{item.age}}岁</text>
+              </view>
+              <view class="tel" wx:if="{{item.tel && pageSouce!=='hunter'}}">
+                  联系方式：{{item.tel}}
+              </view>
+          </view>
+          </view>
+          <view wx:if='{{pageSouce=="hunter"}}'>
+             <view class='status'>
+                  <text class="dot"></text>
+                    {{item.online?"上线":"下线"}}</view>
+          </view>
+          <view wx:else>
+              <!-- <view class="salary"  wx:if="{{!item.oldInterviewNumber}}">
+              离职-随时到岗
+              </view> -->
+              <view class="{{item.oldInterviewNumber>20?'orange':'grey'}}">
+                  最近面试次数：{{item.oldInterviewNumber?item.oldInterviewNumber:0}}
+              </view>
+          </view>
+      </view>
+      <view class="footer flex_start_v" wx:if="{{item.expectPost &&  source !='wanted' && pageSouce!=='hunter'}}">
+        <view class="labelName">
+            求职意向
+        </view>
+        <view class="labelValue" wx:if="{{item.expectPost}}">
+          {{item.expectPost}}
+        </view>
+         <view class="labelValue" wx:if="{{item.expectBase}}">
+          {{item.expectBase}}
+        </view>
+      </view>
+      <view class="hasface flex_between_v" wx:if="{{item.expectPost  && source !='wanted' && pageSouce!=='hunter'}}">
+          <view class="left">
+            <view class="facejob">
+                  面试{{item.expectPost}}
+            </view>
+            <view class="facetime">
+                <image src="../static/images/ic_clock.png" class="icon_time"></image>
+                {{item.interviewTime?item.interviewTime:item.interviewTime}}
+            </view>
+          </view>
+           <view class="right">
+            <view class="faceStatus {{item.inviteStatus!=1?'blue':''}}">
+                {{item.inviteStatus==1?"已经邀请":"待特意同意"}}
             </view>
           </view>
       </view>
@@ -86,47 +172,88 @@
    </view>
 </template>
 
+
 <template name='job'>
-   <view class="job">
+   <view class="job" data-item="{{item}}" bindtap="toDetail">
         <view class="flex_between">
             <view class="job-info">
                 <view class="flex_start_v">
                   <view class='title'>
-                    {{item.postName}}
+                    {{item.jobTitle}}
                   </view>
-                  <view class="salary" wx:if="{{item.islink}}">
-                  {{item.price}}
+                  <view class="salary" wx:if="{{type==3}}">
+                     {{item.jobSalaryStart}}K - {{item.jobSalaryEnd}}K
                   </view>
                 </view>
-                <view class='info'>
-                    <text class="item" wx:for="{{item.label}}" wx:for-item="it" wx:for-index='i' wx:key="i">{{it}}</text>
+                <view class="info area">
+                  <text class="item" wx:if="{item.jobAddressProvince}}">{{item.jobAddressProvince}} {{item.jobAddressCity}} {{item.jobAddressRegion}}</text>
+                  <text class="item" wx:if="{item.jobEducation}}">{{item.jobEducation}}</text>
+                  <text class="item" wx:if="{item.jobAge}}">{{item.jobAge}}</text>
+                  <text class="item" wx:if="{item.jobNumber}}">{{item.jobNumber}}</text>
                 </view>
             </view>
-            <view class="salary" wx:if="{{!item.islink}}">
-                {{item.price}}
+            <view class="fontBlue" wx:if="{{type!=3}}">
+                {{item.jobSalaryStart}}K - {{item.jobSalaryEnd}}K
             </view>
-            <view class="right-arrow grey" wx:if="{{item.islink}}">
+            <view class="right-arrow grey" wx:if="{{type==3}}">
                 
             </view>
         </view>
-        <view class="greyInfo" wx:if="{{item.order}}">
+        <view class="greyInfo" wx:if="{{type<3}}">
             正在排队面试，当前序列为{{item.order}}
+        </view>
+         <view class="greyInfo"  wx:if="{{type==3}}">
+              <image src="./../static/images/ic_sucess.png" class="icon"></image>
+              面试已结束
+        </view>
+        <view class="frizee" wx:if="{{type==3}}">
+            到岗保证金（冻结）：￥100
+        </view>
+    </view>
+</template>
+
+<template name='job1'>
+   <view class="job" data-item="{{item}}" bindtap="toDetail">
+        <view class="flex_between">
+            <view class="job-info">
+                <view class="flex_start_v">
+                  <view class='title'>
+                    {{item.expectPost}}
+                  </view>
+                  <view class="salary" wx:if="{{type==3}}">
+                     {{item.jobSalaryStart}}K - {{item.jobSalaryEnd}}K
+                  </view>
+                </view>
+                <view class="info area">
+                  <text class="item" wx:if="{item.expectBase}}">{{item.expectBase}}</text>
+                  <text class="item" wx:if="{item.jobEducation}}">{{item.jobEducation}}</text>
+                  <text class="item" wx:if="{item.jobAge}}">{{item.jobAge}}</text>
+                  <text class="item" wx:if="{item.jobNumber}}">{{item.jobNumber}}</text>
+                </view>
+            </view>
+            <view class="right-arrow grey">
+                
+            </view>
+        </view>
+        <view class="greyInfo">
+            正在排队面试，当前序列为{{item.waitNumber}}
         </view>
     </view>
 </template>
 
 <template name="company">
-  <view class="company flex_between_v">
+  <view class="company flex_between_v" bindtap="toCompany">
       <view class="flex_start_v">
-          <view class="pic">
-            <image src="" class="img-response"></image>
+          <view class="pic" >
+            <image src="{{company.permitImg}}" class="img-response"></image>
           </view>
           <view class="Info">
-            <view class="title">杭州白鸟科技有限公司</view>
+            <view class="title">{{company.name}}</view>
             <view class="label flex_start_v">
-                <view class="item">移动互联网</view>
-                <view class="item">已上市</view>
-                <view class="item">100-999人</view>
+                <view class="item" wx:if="{{company.label}}">{{company.addressProvince}} {{company.addressCity}} {{company.addressRegion}}</view>
+                <view class="item" wx:if="{{company.label}}">{{company.label}}</view>
+                <view class="item" wx:if="{{company.market}}">{{company.market}}</view>
+                <view class="item" wx:if="{{company.scale}}">{{company.scale?company.scale:0}}人</view>
             </view>
           </view>
         </view>
@@ -138,7 +265,7 @@
     <view class="detail">
         <view class="title">公司介绍</view>
         <view class='info'>
-            白鸟团队于2015年组建，专注于区块链技术应用融合进产业和实际场景，现已在数据安全与共享、供应链金融、正品校验（溯源）、行为记录（溯源）、版权确权（存证）等场景提供服务，且已生成平台层可复制化推动。
+            {{company.info}}
         </view>
     </view>
 </template>
@@ -147,9 +274,8 @@
    <view class="vedioBox">
       <view class="vedio">
        
-<video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" controls bindended='bindended' bindpause='bindpause' show-center-play-btn="{{false}}" object-fit='cover'>
+<video id="myVideo" src="{{company.infoVideo}}" controls bindended='bindended' bindpause='bindpause' show-center-play-btn="{{false}}" object-fit='cover'>
       <cover-view class="video_cover" wx:if="{{isShow}}">
-        <cover-image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583392211457&di=0c92a1e1e46de3e2e6dbaf3ed5e1042a&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F0dd7912397dda144dac4acc9b2b7d0a20df486f8.jpg" mode="widthFix"></cover-image>
         <cover-image src="../static/images/play.png" mode="widthFix" class="video_play_icon" catchtap="bindplay" data-id='myVideo' ></cover-image>
         <cover-view class="vedio-msg">介绍视频</cover-view>
         <cover-view class="video_bg_black">
@@ -157,9 +283,6 @@
       </cover-view>
           
       </video>
-      </view>
-      <view class="proInfo">
-           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXs
       </view>
    </view>
 </template>
@@ -201,42 +324,144 @@
 </template>
 
 <template name='list-item'>
-  <view class="list-item flex_between_v">
+  <view class="list-item flex_between_v" bindtap="jump" data-link="{{company.link}}">
+      <view class="left">
+          <image src="../static/images/ic_clock.png" class="icon_menu"></image>
+         面试时间： {{company.interviewTime}}
+      </view>
+      <!-- <view class="right-arrow"></view> -->
+  </view>
+</template>
+
+
+<template name='menu-item'>
+  <view class="list-item flex_between_v" bindtap="jump" data-link="{{item.link}}">
       <view class="left">
           <image src="{{item.iconPath}}" class="icon_menu"></image>
           {{item.label}}
+      </view>
+      <!-- <view class="right-arrow"></view> -->
+  </view>
+</template>
+
+<template name='companyInfo1'>
+   <view class="companyInfo1">
+      <view class="flex_between" data-item="{{companyInfo}}" bindtap="toCompany">
+          <view class='flex_start_v'>
+          <view class="pic">
+              <image src="{{companyInfo.logoImage}}" class="userHeader"></image>
+          </view>
+          <view class="user-info">
+              <view class='top flex_start_v'>
+                <view class='title'>{{companyInfo.name}}</view>
+                <view class='status'>
+                  <text class="dot"></text>
+                    {{companyInfo.online?"上线":"下线"}}</view>
+              </view>
+              <view class='info flex_start_v' >
+                  <view class="flex_start_v mr17">
+                    <view class="label mr17">
+                        面试成功率
+                    </view>
+                     <view class="blue">
+                        {{(companyInfo.oldInterviewNumber?companyInfo.oldInterviewNumber:0)+"/"+(companyInfo.newInterviewNumber?companyInfo.newInterviewNumber:0)}}
+                    </view>
+                  </view>
+                   <view class="flex_start_v">
+                    <view class="label mr17">
+                        面试成功率
+                    </view>
+                     <view class="blue">
+                        {{companyInfo.entryNumber}}人
+                    </view>
+                  </view>
+              </view> 
+          </view>
+          </view>
+          <view class="right-arrow"></view>
+      </view>
+
+       <view class="vedioBox mt20" wx:if="{{companyInfo.infoVideo && !type}}">
+      <view class="vedio">
+       
+<video id="myVideo" src="{{companyInfo.infoVideo}}" controls bindpause='bindpause'  show-center-play-btn="{{false}}" object-fit='cover'>
+      <cover-view class="video_cover" wx:if="{{!isplay}}" bindtap="bindplay">
+        <cover-image src="../static/images/play.png" mode="widthFix" class="video_play_icon"></cover-image>
+        <cover-view class="video_bg_black">
+        </cover-view>
+      </cover-view>
+          
+      </video>
+      </view>
+   </view>
+   </view>
+</template>
+
+
+<template name="userHr">
+  <view class="flex_between userHr">
+      <view class="flex_start_v">
+        <button class='pic' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            <image src="{{userInfo.image}}" class="picHeader"></image>
+        </button>
+        <view class="userInfo" bindtap="toDetail">
+            <view class="flex_start_v">
+              <view class="name">{{userInfo.nickName}}</view>
+              <view class="tel flex_start_v">
+              <image class="icon_contact" src="../static/images/ic_phone_1.png" ></image> {{userInfo.phone}}
+              </view>
+            </view>
+            <view class="info">
+              {{userInfo.companyId}}
+            </view>
+       
+       
+       
+        </view>
+      </view>
+      <view class="right-arrow" wx:if='{{!isMember}}' bindtap="toDetail"></view>
+      <view class="fontBlue" wx:if='{{isMember}}'>一级权限</view>
+  </view>
+</template>
+
+<template name="userHr1">
+  <view class="flex_between userHr" data-item='{{item}}' bindtap="toDetail">
+      <view class="flex_start_v">
+        <view class="pic">
+            <image src="{{item.image}}" class="picHeader"></image>
+        </view>
+        <view class="userInfo">
+            <view class="flex_start_v">
+              <view class="name">{{item.nickName}}</view>
+
+            </view>
+            <view class="info">
+                <image src="./../static/images/ic_phone.png" class="icon_contact"></image>
+                {{item.phone}}
+            </view>
+        </view>
       </view>
       <view class="right-arrow"></view>
   </view>
 </template>
 
-<template name="userHr">
-  <view class="flex_between userHr">
-      <view class="flex_start_v">
-        <view class="pic">
-            <image src="" class="picHeader"></image>
-        </view>
-        <view class="userInfo">
-            <view class="flex_start_v">
-              <view class="name">远远</view>
-              <view class="lable">HR</view>
-            </view>
-            <view class="info flex_start_v">
-                <view class="list">
-                    <image src="{{isMember?'../static/images/ic_phone.png':'../static/images/ic_tel.png'}}" class="icon_contact"></image>
-                    13876890987
-                </view>
-                <view class="list">
-                    <image src="{{isMember?'../static/images/ic_email_grey.png':'../static/images/ic_email.png'}}" class="icon_contact"></image>
-                    1111@qq.com
-                </view>
-            </view>
-       
-       
-       
-        </view>
+<template name='gcompany'>
+  <view class="gcompany flex_between">
+      <view class="left">
+          <view class='title'>
+              关于大力发展生产力的决定
+          </view>
+          <view class="info">
+              浙江省杭州市江干区
+          </view>
       </view>
-      <view class="right-arrow" wx:if='{{!isMember}}'></view>
-      <view class="fontBlue" wx:if='{{isMember}}'>一级权限</view>
+      <view class="right">
+          <view wx:if="{{curIndex!=2}}" class='status {{curIndex===0?"fontRed":"fontorange"}}'>
+                未通过
+          </view>
+          <view class="time">
+              2020.02.01
+          </view>
+      </view>
   </view>
 </template>

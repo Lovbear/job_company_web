@@ -1,0 +1,92 @@
+<view class="refresh">
+    下拉刷新
+</view>
+<view class="publicJob" wx:if="{{type==0}}">
+  <view class='greyLine'></view>
+  <view class="list flex_between_v">
+      <view class='title'>企业名称</view>
+      <view class='val'>
+           <input name="name" bindinput="bindinput" data-item="name" value="{{companyInfo.name}}" class="textRight" placeholder="例如: 互联网公司"></input>
+      </view>
+  </view>
+  <view class="list flex_between_v jobAddress">
+      <view class='title'>单位地址</view>
+       <view class="val flex_start_v">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{provinceArr}}" range-key="name" >
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{province}}">
+         <text class="name">{{province}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择省</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+   <picker bindchange="bindCityChange" value="{{index}}" range="{{cityArr}}" range-key='name'>
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{city}}">
+         <text class="name">{{city}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择市</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+   <picker bindchange="bindAreaChange" value="{{index}}" range="{{areaArr}}" range-key='name'>
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{area}}">
+         <text class="name">{{area}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择区</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+      </view>
+  </view>
+  <view class="list flex_between_v">
+      <view class='title'>联系人</view>
+      <view class='val'>
+          <input name="linkman" bindinput="bindinput" data-item="linkman" value="{{companyInfo.linkman}}" class="textRight" placeholder="例如: 互联网公司"></input>
+      </view>
+  </view>
+  <view class="list flex_between_v">
+      <view class='title'>联系电话</view>
+      <view class='val'>
+         <input data-item="tel" value="{{companyInfo.tel}}" bindinput="bindinput" class="textRight" placeholder="单行输入"></input>
+      </view>
+  </view>
+  <view class="list bordernone">
+      <view class='title'>营业执照</view>
+      <view class='imgBox' bindtap="uploadPic">
+          <image wx:if='{{imgUrl }}' src="{{imgUrl}}" class="yyzz"></image>
+          <view class="upload" wx:else>
+              <image src="./../static/images/ic_upload.png" class="icon_up"></image>
+              <view class='info'>上传营业执照</view>
+          </view>
+      </view>
+  </view>
+
+
+  
+  <view class='foote'>
+      <button class="blueBtn" bindtap="submit">确定提交</button>
+  </view>
+</view>
+
+<view class="examine" wx:else>
+      <view class="status" wx:if="{{type==1}}">
+          <image src="./../static/images/examine.png"></image>
+          <view class="info">审核中</view>
+      </view>
+      <view class="status" wx:else>
+          <image src="./../static/images/alsoAuth.png"></image>
+          <view class="info">已认证</view>
+      </view>
+</view>

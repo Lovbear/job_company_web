@@ -1,7 +1,7 @@
 <import src='../template/template' />
 <view class='face'>
   <view class="navBar flex_start_center c">
-      <view class="f1 {{index==curIndex?'active':''}}" wx:for="{{navlist}}">
+      <view class="f1 {{index==curIndex?'active':''}}" wx:for="{{navlist}}" bindtap="tabchange" data-index="{{index}}">
           {{item}}
       </view>
   </view>
@@ -10,7 +10,8 @@
     </view>
   <view class='pd30 content'>
     <view wx:if='curIndex==0'>
-        <template is='user' wx:for="{{listDate}}" data="{{item}}"></template>
+        <template wx:if="{{curIndex!=2}}" is='user' wx:for="{{listDate}}" data="{{item}}"></template>
+       <template wx:if="{{curIndex==2}}" is='user2' wx:for="{{listDate}}" data="{{item}}"></template>
     </view>
     <view wx:if='curIndex==1'>
     

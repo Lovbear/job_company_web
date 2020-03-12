@@ -1,0 +1,14 @@
+<view class="main">
+    <button class="express box" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-type="1">
+    <view  bindtap="toExpress">
+        <image src="./../static/images/ic_express.png"></image>
+        <view class="info">我是企业</view>
+    </view>
+    </button>
+    <button class="firm box" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-type="2">
+    <view bindtap="tofirm">
+         <image src="./../static/images/ic_firm.png"></image>
+          <view class="info">我是政府</view>
+    </view>
+    </button>
+</view>

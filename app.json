@@ -1,19 +1,39 @@
 {
   "pages": [
-    "pages/policy/index",
-    "pages/jobhunter/index",
-    "pages/jopDetail/index",
-    "pages/company/index",
-    "pages/mine/index",
-    "pages/face/index",
+    "pages/main/index",
     "pages/wanted/index",
-    "pages/hotPost/index",
-    "pages/faceEnd/index",
+    "pages/faceChange/index",
     "pages/faceDetail/index",
-    "pages/recruitlist/index",
-    "pages/myParse/index",
+    "pages/tglj/index",
+    "pages/face/index",
+    "pages/editCompany/index",
+    "pages/companyauth/index",
+    "pages/perDetail/index",
     "pages/proDetail/index",
-    "pages/companyMember/index"
+    "pages/hotPost/index",
+    "pages/pubilcDemand/index",
+    "pages/frimAuth/index",
+    "pages/mine/index",
+    "pages/gmine/index",
+    "pages/demandetail/index",
+    "pages/editDemand/index",
+    "pages/demand/index",
+    "pages/frim/index",
+    "pages/promotion/index",
+    "pages/addbankcard/index",
+    "pages/bankcard/index",
+    "pages/recharge/index",
+    "pages/jopDetail/index",
+    "pages/myParse/index",
+    "pages/faceEnd/index",
+    "pages/jobhunter/index",
+    "pages/recruitlist/index",
+    "pages/policy/index",
+    "pages/editNikeName/index",
+    "pages/addmember/index",
+    "pages/companyMember/index",
+    "pages/publicJob/index",
+    "pages/company/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,16 +48,10 @@
   "tabBar":{
       "list":[
         {
-          "pagePath": "pages/policy/index",
-          "iconPath": "pages/static/images/footIcon/ic_policy_n.png",
-          "selectedIconPath": "pages/static/images/footIcon/ic_policy_h.png",
-          "text": "政策"
-        },
-        {
           "pagePath":"pages/wanted/index",
           "iconPath": "pages/static/images/footIcon/ic_apply_n.png",
           "selectedIconPath": "pages/static/images/footIcon/ic_apply_h.png",
-          "text":"招聘"
+          "text":"F2F"
         },
         {
           "pagePath": "pages/face/index",

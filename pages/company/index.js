@@ -1,11 +1,16 @@
+import req from "../../utils/request.js";
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    expressId:'',
     background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
     isShow:true,
+    company:{},
     videoContext:'',
     item:{
       label:'面试时间：每日10:00-17:00',
@@ -24,6 +29,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   
+        if(options.id){
+            this.setData({
+              expressId:options.id
+            },()=>{
+              this.getInfo();
+            })
+        }else{
+            this.getInfo();
+        }
     
   },
 
@@ -59,7 +74,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+      wx.stopPullDownRefresh()
   },
 
   /**
@@ -75,13 +90,46 @@ Page({
   onShareAppMessage: function () {
     
   },
-
+  getInfo(){
+    let that = this;
+    let url="";
+    let data={}
+    let type = "POST"
+    if (wx.getStorageSync("userType")==2){
+      type = "GET"
+      data["id"] = this.data.expressId
+        url ="/gms/govern/getCompanyDetail";
+    }else{
+      url = "/bms/companyInfo";
+    }
+    req.request.auth(url, data, type).then(res=>{
+        if(res.data.code=="0"){
+          let listData = '';
+          let joblist=[];
+          if(wx.getStorageSync("userType")==2){
+              listData = res.data.data.bmsCompany;
+            joblist = res.data.data.jobList
+          }else{
+              listData = res.data.data
+          } 
+          that.setData({
+            company: listData,
+            datalist: joblist
+          }, () => {
+            that.videoContext.play();
+            that.setData({
+              isShow: false
+            })
+          })
+    
+        }
+    })
+  },
   bindplay() {
     this.setData({
       isShow: false
     })
     this.videoContext.play();
-    console.log('play')
   },
   // 监听播放到末尾时触发
   bindended() {
@@ -90,8 +138,19 @@ Page({
       isShow: true
     })
   },
+
   // 监听暂停播放时触发
   bindpause() {
     console.log('pause')
-  }
+  },
+  toEdit(){
+    wx.navigateTo({
+      url: "/pages/editCompany/index"
+    })
+  },
+  tohotPage() {
+    wx.navigateTo({
+      url: "/pages/hotPost/index"
+    })
+  },
 })

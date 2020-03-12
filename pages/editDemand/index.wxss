@@ -1,0 +1,54 @@
+.editDemand{
+  padding: 0 30rpx;
+}
+
+.container{
+  padding: 30rpx;
+  background:rgba(255,255,255,1);
+  border-radius:12px;
+  opacity:0.7;
+  border:1px solid rgba(151,151,151,1);
+  font-size:34rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  height: 338rpx;
+}
+
+.editDemand .form .title{
+  padding: 30rpx 0;
+  font-size:30rpx;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  font-weight:600;
+  color:rgba(51,51,51,1);
+}
+
+.editDemand .form .picker{
+  margin-right:40rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+}
+
+.editDemand .form .picker .name{
+  display: inline-block;
+  width: 120rpx;
+}
+
+.val{
+  padding-bottom: 30rpx;
+}
+
+.weui-input{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+}
+
+.foote .blueBtn{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  letter-spacing:8rpx;
+  border-radius: 0;
+}

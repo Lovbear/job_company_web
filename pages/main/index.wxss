@@ -1,0 +1,30 @@
+.main{
+    margin-top:100rpx;
+}
+
+.main .box{
+    margin: 0 auto; 
+    width:600rpx;
+    height:400rpx;
+    background:rgba(1,136,251,1);
+    border-radius:20rpx;
+    text-align: center;
+    font-size:40rpx;
+    font-family:PingFangSC-Semibold,PingFang SC;
+    font-weight:600;
+    color:rgba(255,255,255,1);
+}
+
+.main .box.express{
+    margin-bottom: 90rpx;
+}
+
+.main .box.firm{
+    background:rgba(25,199,168,1);
+}
+
+.main .box image{
+  margin: 117rpx 0 50rpx;
+  width: 60rpx;
+  height: 60rpx;
+}

@@ -3,6 +3,7 @@ const app = getApp()
 
 Page({
   data: {
+    type:4,
     arr: [],
     triggered: false,
     datalist:[
@@ -13,6 +14,9 @@ Page({
       }
     ],
     hasMoreData:false
+  },
+  onLoad(option){
+    this.getInfo();
   },
   onReady: function () {
     const arr = []
@@ -65,5 +69,25 @@ Page({
   */
   onReachBottom: function () {
     
+  },
+  getInfo(){
+    let that = this;
+    req.request.auth("/bms/jobList").then(res => {
+        if(res.data.code=='0'){
+            that.setData({
+              datalist: res.data.data
+            })
+        }
+    })
+  },
+  addjob(){
+    wx.navigateTo({
+      url:'/pages/publicJob/index',
+    })
+  },
+  toDetail(e){
+    wx.navigateTo({
+      url: "/pages/jopDetail/index?id=" + e.currentTarget.dataset.item.id
+    })
   }
 })

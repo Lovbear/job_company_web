@@ -1,4 +1,6 @@
 
+
+import req from "../../utils/request.js"
 const app = getApp();
 
 Page({
@@ -7,30 +9,60 @@ Page({
    * 页面的初始数据
    */
   data: {
+    source:'wanted',
     noCard:false,
     hasMoreData:false,
-    datalist: [
-      {
-        postName: "吴南",
-        label: ["男", "25岁", "3年经验"],
-        status: "在线",
-        jobstatus:'离职-随时到岗'
-      }
-    ]
+    vedioContent:null,
+    isplay:false,
+    companyInfo:{
+  
+    },
+    memberList:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     
+      
+  },
+  getInfo(){
+    let that =this;
+    req.request.auth('/bms/jobFair',"","GET").then(res => {
+          if(res.data.code=="0"){
+            if (res.data.data && res.data.data.bmsCompanyInfoVO){
+              that.setData({
+                  companyInfo: res.data.data.bmsCompanyInfoVO,
+                  memberList:res.data.data.cmsResumeExtVOList
+              })
+            }else{
+              wx.navigateTo({
+                url: "/pages/editCompany/index"
+              })
+            }
+          }
+    })
+  },
+  searchMember(e){
+    let that = this;
+    req.request.auth('/bms/jobList').then(res => {
+      if (res.data.code == "0") {
+        // that.setData({
+        //   companyInfo: res.data.data.bmsCompanyInfoVO,
+        //   isplay: true
+        //   // memberList: res.data.data.bmsCompanyInfoVO.cmsResumeExtVOList
+        // })
+        // that.vedioContent.play();
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    this.getInfo();
+    this.vedioContent = wx.createVideoContext('myVideo');
   },
 
   /**
@@ -75,10 +107,28 @@ Page({
     
   },
 
-  toDetail(e){
-    console.log(121)
+  toCompany(e){
     wx.navigateTo({
-      url: '/pages/jobhunter/index?id' + e.currentTarget.dataset.id
+      url: '/pages/company/index'
     })
+  },
+  bindplay(){
+    this.setData({
+      isplay:true
+    })
+   
+    this.vedioContent.play();
+  },
+  bindended(){
+    let companyInfo = this.data.companyInfo;
+    this.setData({
+      isplay:false
+    })
+  },
+  toDetail(e){
+
+      wx.navigateTo({
+        url: '/pages/jobhunter/index?type=1&&id=' + e.currentTarget.dataset.item.id
+      })
   }
 })

@@ -1,7 +1,22 @@
-<template name="footer">
-  这是底部footer1
-</template>
-
-<template name="footer2">
-  这是底部footer2 {{text}}
+<template name='footer'>
+<view class="flex_start_center footbar">
+  <view class="f1 {{footIndex==0?'active':''}}" data-index="0" bindtap="jump" data-page="/pages/frim/index">
+      <image src="{{footIndex==0?'./../static/images/footIcon/ic_apply_h.png':'./../static/images/footIcon/ic_apply_n.png'}}"></image>
+      <view class='info'>
+          F2F
+      </view>
+  </view>
+  <view class="f1 {{footIndex==1?'active':''}}" data-index="1" bindtap="jump" data-page="/pages/demand/index">
+      <image src="{{footIndex==1?'./../static/images/footIcon/ic_requirelist_h.png':'./../static/images/footIcon/ic_requirelist_n.png'}}"></image>
+      <view class='info'>
+          需求单
+      </view>
+  </view>
+  <view class="f1 {{footIndex==2?'active':''}}" data-index="2" bindtap="jump" data-page="/pages/mine/index">
+      <image src="{{footIndex==2?'./../static/images/footIcon/ic_me_h.png':'./../static/images/footIcon/ic_me_n.png'}}"></image>
+      <view class='info'>
+          我的
+      </view>
+  </view>
+</view>
 </template>

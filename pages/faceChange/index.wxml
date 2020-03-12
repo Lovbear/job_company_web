@@ -1,0 +1,19 @@
+<view class="faceChange">
+    <view class="list flex_start_v">
+        <view class="title">面试转接</view>
+         <view class="val">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{memberlist}}" range-key="nickName">
+              <view class="picker" wx:if="{{member}}">
+                {{member.nickName}}
+              </view>
+               <view class="picker" wx:else>
+                    请选择成员
+              </view>
+  </picker>
+         </view>
+    </view>
+    <view class="foote">
+        <button class="bgblue btn" bindtap="submit">确定</button>
+        <button class="greyblue btn">取消</button>
+    </view>
+</view>

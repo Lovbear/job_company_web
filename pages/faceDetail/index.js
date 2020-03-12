@@ -1,9 +1,14 @@
+import req from "../../utils/request.js";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    type:3,
+    source:'wanted',
+    currInfo:'',
     background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
     isShow:true,
     videoContext:'',
@@ -31,18 +36,7 @@ Page({
       }
     ],
     newsList:[
-      {
-        time:"2010-12-12",
-        content:"asdasd"
-      },
-      {
-        time: "2010-12-12",
-        content: "asdasd"
-      },
-      {
-        time: "2010-12-12",
-        content: "asdasd"
-      }
+  
     ]
   },
 
@@ -50,7 +44,52 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let currInfo = wx.getStorageSync('currUser');
+    let that =this;
+    this.setData({
+      currInfo
+    },()=>{
+      console.log(currInfo.cmsResumeVO)
+      that.getInfo();
+    })
     
+  },
+
+  getInfo(){
+      let that =this;
+      let url = '';
+      let data={};
+    if (this.data.currInfo.cmsResumeVO){
+      data['userId'] = this.data.currInfo.cmsResumeVO.userId;
+        url = "/bms/byUserIdFinishEntryCmsResumeInfo"
+        this.setData({
+          type:3
+        })
+      }else{
+      data['userId'] = this.data.currInfo.userId;
+        this.setData({
+          type: 2
+        })
+      url ="/bms/userInterviewInfo"
+      }
+      req.request.auth(url, data,'GET').then(res=>{
+        console.log(res)
+        if (res.data.code=='0')
+          if(that.data.type==3){
+          that.setData({
+            datalist: new Array(res.data.data.bmsJobVO),
+            listDate: new Array(res.data.data.cmsResumeVO),
+            newsList: new Array(res.data.data.entry)
+          })
+          }else{
+            that.setData({
+              datalist: new Array(res.data.data),
+              listDate: new Array(res.data.data)
+            },()=>{
+              console.log(that.data.listDate)
+            })
+          }
+      })
   },
 
   /**
@@ -133,5 +172,70 @@ Page({
       }
       return item;
     });
+  },
+  toDetail(e) {
+    wx.navigateTo({
+      url: "/pages/jopDetail/index?id=" + e.currentTarget.dataset.item.id
+    })
+  },
+  beginFace(e){
+    console.log(e)
+    let that = this;
+    let data = {
+      cId: that.data.currInfo.userId,
+      status:e.currentTarget.dataset.item
+    }
+    req.request.auth("/bms/startInterview", data,"get").then(res=>{
+        if(res.data.code="0"){
+            that.getInfo();
+        }else{
+          wx.showToast({
+            title: res.data.message,
+            icon: 'warn',
+            duration: 2000
+          })
+        }
+    })
+  },
+  change(){
+    wx.navigateTo({
+      url: '/pages/faceChange/index',
+    })
+  },
+  faceSucess(e){
+    let that = this;
+    let data = {
+      "status": e.currentTarget.dataset.bid,
+      "userId": wx.getStorageSync('currUser').userId
+    }
+    req.request.auth("/bms/byUserIdFinish").then(res=>{
+        if(res.data.code=="0"){
+          that.getInfo();
+        }else{
+            wx.showToast({
+              title:res.data.message,
+              icon:"warn",
+              duration:2000
+            })
+        }
+    })
+  },
+  sigin(e){
+    let that = this;
+    let data = {
+      "status": e.currentTarget.dataset.status,
+      "userId": that.data.listDate[0].id
+    }
+    req.request.auth("/bms/isByUserIdEntry",data,"GET").then(res => {
+        if (res.data.code == "0") {
+          that.getInfo();
+        }else{
+            wx.showToast({
+              title: res.data.message,
+              icon: "warn",
+              duration: 2000
+            })
+        }
+    })
   }
 })

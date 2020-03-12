@@ -1,0 +1,8 @@
+<view class="tglj">
+    <canvas class='canvas' style="width:{{code_w}}px; height:{{code_w}}px;" canvas-id='canvas' bindlongtap='save'></canvas>
+<view class='tip'>长按保存二维码</view>
+    <view class="link">
+        <view class="title">分享链接</view>
+        <view class="greyInfo">{{text}}</view>
+    </view>
+</view>

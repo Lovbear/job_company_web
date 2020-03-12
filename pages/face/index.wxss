@@ -8,6 +8,7 @@
   font-weight:400;
   color:rgba(0,0,0,1);
   background: #fff;
+  z-index: 10;
 }
 
 .navBar .f1{

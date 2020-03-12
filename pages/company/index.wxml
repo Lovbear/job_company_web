@@ -1,17 +1,21 @@
 <import src='../template/template' />
+<view class="refresh">下拉刷新</view>
 <view class='companyDetail'>
-    <template is='company' data='{{show}}'></template>
+    <template is='company' data='{{company,show}}'></template>
     <view class="page-body">
-        <template is="vedio" data="{{isShow}}"></template>
+        <template is="vedio" data="{{company,isShow}}"></template>
      </view>
-    <template is='detail'></template>
+    <template is='detail' data='{{company}}'></template>
      <view class="mg010">
-      <template is='list-item' data="{{item}}"></template>
+      <template is='list-item' data="{{company}}"></template>
     </view>
-    <view class='hotjob flex_between_v'>
+     <view class='hotjob flex_between_v' wx:if="{{expressId}}">
         <view class='title'>热招岗位</view>
-        <view class='more'>更多</view>
+        <!-- <view class='more' bindtap="tohotPage">更多</view> -->
     </view>
-    <template is='job' wx:for="{{datalist}}" data="{{item}}"></template>
+    <template wx:if="{{expressId}}" is='job' wx:for="{{datalist}}" data="{{item}}"></template>
 
+</view>
+<view class="fixedadd" bindtap="toEdit">
+  <image src="./../static/images/icon_edit.png"></image>
 </view>

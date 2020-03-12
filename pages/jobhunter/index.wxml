@@ -1,10 +1,10 @@
 <import src='../template/template' />
 <view class='companyDetail'>
-    <template is='user' wx:for="{{listDate}}" data="{{item}}"></template>
+    <template is='user' wx:for="{{listDate}}" data="{{item,pageSouce}}"></template>
     <view class="page-body">
         <template is="vedio" data="{{isShow}}"></template>
      </view>
-    <view class='hotjob flex_between_v'>
+    <!-- <view class='hotjob flex_between_v'>
         <view class='title'>教育信息</view>
         <view class='more'></view>
     </view>
@@ -17,19 +17,30 @@
         <view>计算机应用技术</view>
         <view>2009.9-2013.9</view>
       </view>
-    </view>
+    </view> -->
      <view class='hotjob flex_between_v'>
         <view class='title'>工作经历</view>
     </view>
     <view class="eduInfo">
-      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      {{listDate[0].workExperience}}
     </view>
     <view class='hotjob flex_between_v'>
         <view class='title'>求职意向</view>
-        <view class='more'>更多</view>
     </view>
-    <template is='job' wx:for="{{datalist}}" data="{{item}}"></template>
-    <view class="foote">
-      <button class="bigGreen">发送面试邀请</button>
+    <view class="job">
+    <view class="flex_between">
+    <view class="job-info">
+    <view class="flex_start_v">
+      <view class="title">{{listDate[0].expectPost}}</view>
+    </view>
+    <view class="info area">
+      <text class="item">{{listDate[0].addressCity}}</text>
+    </view>
+    </view>
+    <view class="fontBlue">{{listDate[0].expectSalaryStart}}K - {{listDate[0].expectSalaryEnd}}K </view>
+    </view>
+    </view>
+    <view class="foote" wx:if="{{type!=2}}">
+      <button class="bigGreen" bindtap="sendInvite">发送面试邀请</button>
     </view>
 </view>

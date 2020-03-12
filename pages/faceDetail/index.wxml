@@ -1,13 +1,14 @@
 <import src='../template/template' />
 <view class='companyDetail'>
-    <template is='user' wx:for="{{listDate}}" data="{{item}}"></template>
+    <template is='user' wx:for="{{listDate}}" data="{{item,source}}"></template>
     
-    <view class='hotjob flex_between_v'>
+    
+    <!-- <view class='hotjob flex_between_v'>
         <view class='title'>面试岗位</view>
         <view class='more'></view>
     </view>
-    <template is='job' wx:for="{{datalist}}" data="{{item}}"></template>
-    <view class='hotjob flex_between_v'>
+    <template is='job1' wx:for="{{datalist}}" data="{{item,type}}"></template> -->
+    <view class='hotjob flex_between_v' wx:if="{{type==3}}">
         <view class='title'>面试记录</view>
         <view class='status flex_start_v'>
             <view class="dot"></view>
@@ -34,18 +35,38 @@
         </block>
       </view>
     </view>
-    <view class="footerBar flex_start_center">
-        <view class="f1 bggreen">
+    <view class="footerBar flex_start_center" wx:if="{{listDate[0].status==0}}">
+        <view class="f1 bgError" data-item='0' bindtap="beginFace">
+          <image src="../static/images/ic_inject.png" class="icon_footer1"></image>
+          放弃面试
+        </view>
+        <view class="f1 bgblue" data-item='1' bindtap="beginFace">
           <image src="../static/images/ic_face.png" class="icon_footer"></image>
           视频面试
         </view>
-        <view class="f1 bgsucess">
-          <image src="../static/images/ic_pass.png" class="icon_footer"></image>
+    </view>
+     <view class="footerBar flex_start_center" wx:if="{{listDate[0].status==1}}">
+      <view class="f1 bggrey" bind-item='listDate[0].userId' bindtap="change">
+          <image src="../static/images/ic_change.png" class="icon_footer1"></image>
+            面试转接
+        </view>
+        <view class="f1 bgError" data-status='0' bindtap="faceSucess">
+          <image src="../static/images/ic_fail02.png" class="icon_footer1"></image>
+            面试失败
+        </view>
+        <view class="f1 bgblue" data-status='1' bindtap="faceSucess">
+          <image src="../static/images/ic_success.png" class="icon_footer"></image>
           面试完成
         </view>
-        <view class="f1 bgError">
-          <image src="../static/images/ic_inject.png" class="icon_footer"></image>
-          拒绝预约
+    </view>
+    <view class="footerBar flex_start_center" wx:if="{{type==3}}">
+        <view class="f1 blueBtn" wx:if="{{newsList[0].status==1}}">
+            面试人员已到岗，完成签约
+        </view>
+        <view class="f1 bgError"  wx:if="{{newsList[0].status==0}}" data-status='0' bindtap="sigin">
+            规定时间未到岗
+        </view><view class="f1 blueBtn"  wx:if="{{newsList[0].status==0}}" data-status='1' bindtap="sigin">
+            标记为已到岗
         </view>
     </view>
 </view>

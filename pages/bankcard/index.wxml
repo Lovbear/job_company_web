@@ -1,0 +1,13 @@
+<view class="bankcard">
+    <view class="refresh">
+      刷新
+    </view>
+    <view class="card">
+        <view class="title">中国工商银行</view>
+        <view class="cardNum">
+            ····  ····  ····  4567
+        </view>
+    </view>
+
+    <view class="addBankCard">添加银行卡</view>
+</view>

@@ -1,0 +1,46 @@
+<view class="recharge">
+    <view class="title">
+      充值金额
+    </view>
+    <view class="inputBox flex_start_v">
+        <view class="icon">
+            ¥
+        </view>
+        <input class="weui-input" placeholder="将会获取焦点"/>
+    </view>
+
+    <view class="title">
+      付款方式
+    </view>
+    <button class="flex_between_v selectBox">
+      <view>中国工商银行</view>
+      <view class='right-arrow'></view>
+    </button>
+    <view class="footer">
+        <button class="blueBtn">
+              确定充值
+        </button>
+    </view>
+</view>
+
+<view class="selectbox" wx:if="{{seletBox}}">
+    <view class="title">
+        选择付款银行卡
+    </view>
+    <view class="radioGroup">
+        <radio-group class="radio-group" bindchange="radioChange">
+            <view class="flex_between_v" wx:for-items="{{items}}" wx:key="name">
+                <view class="lable">
+                  {{item.value}}
+                </view>
+                <view class="radio">
+                     <radio class="radio" value="{{item.name}}" checked="{{item.checked}}" color="#0188FB">
+                </radio>
+                </view>
+            </view>
+            </radio-group>
+    </view>
+    <view class='radioFooter'>
+          取消
+    </view>
+</view>

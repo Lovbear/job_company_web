@@ -4,7 +4,6 @@
 
 
 .jobdetail .title{
-    margin-top: 40rpx;
     font-size:34rpx;
     font-family:PingFangSC-Semibold,PingFang SC;
     font-weight:600;
@@ -24,3 +23,11 @@
     margin-bottom:40rpx;
     border: none;
 } 
+
+
+.jobdetail .fontBlue{
+  font-size:36rpx;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  font-weight:600;
+  color:rgba(1,136,251,1);
+}

@@ -1,0 +1,37 @@
+.addbankCard{
+  padding: 0 30rpx;
+}
+
+.addbankCard .form .title{
+  padding: 30rpx 0;
+  font-size:30rpx;
+  font-family:PingFangSC-Semibold,PingFang SC;
+  font-weight:600;
+  color:rgba(51,51,51,1);
+}
+
+.addbankCard .form .picker{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+}
+
+.val{
+  padding-bottom: 30rpx;
+  border-bottom: 2rpx solid #F5F5F5;
+}
+
+.weui-input{
+  font-size:30rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+}
+
+.foote .blueBtn{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  letter-spacing:8rpx;
+  border-radius: 0;
+}

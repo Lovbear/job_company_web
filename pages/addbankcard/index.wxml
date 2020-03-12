@@ -1,0 +1,49 @@
+<view class="addbankCard">
+    <view class="greyLine"></view>
+    <view class="form">
+      <view class='title'>
+        银行名称
+      </view>
+      <view class="val">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key='name'>
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{curBank}}">
+         <text>{{array[curBank].name}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey">请选择银行</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+      </view>
+      <view class="title">
+        银行卡号
+    </view>
+    <view class="val">
+        <input class="weui-input" placeholder="请输入银行卡号"/>
+    </view>
+    <view class="title">
+        持卡人姓名
+    </view>
+    <view class="val">
+        <input class="weui-input" placeholder="请输入持卡人姓名"/>
+    </view>
+    <view class="title">
+        银行卡号
+    </view>
+    <view class="val">
+        <input class="weui-input" placeholder="请输入预留手机号"/>
+    </view>
+    <view class="title">
+        开户支行
+    </view>
+    <view class="val">
+        <input class="weui-input" placeholder="请输入开户支行"/>
+    </view>
+  </view>
+  <view class="foote">
+      <button class="blueBtn">确定</button>
+  </view>
+</view>

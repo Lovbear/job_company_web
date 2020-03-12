@@ -36,7 +36,7 @@
     width:320rpx;
     height:94rpx;
     line-height: 94rpx;
-    background:rgba(0,179,138,1);
+    background:#1EC29D;
     border-radius:10rpx;
 }
 
@@ -45,7 +45,7 @@
     width:320rpx;
     height:94rpx;
     line-height: 94rpx;
-    background:#3D97D8;
+    background:#0188FB;
     border-radius:10rpx;
 }
 
@@ -97,7 +97,7 @@
 .capital .recond .item::after{
   content: "";
   position: absolute;
-  left:30rpx;
+  left:0;
   right:0;
   bottom: 0;
   border-bottom: 1px solid rgba(0,0,0,0.15);

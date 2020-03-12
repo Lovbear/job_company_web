@@ -1,0 +1,80 @@
+<view class="editDemand">
+    <view class="greyLine"></view>
+    <view class="form">
+      <view class='title'>
+        发布地点
+      </view>
+      <view class="val flex_start_v">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{provinceArr}}" range-key="name" >
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{province}}">
+         <text class="name">{{province.name}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择省</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+   <picker bindchange="bindCityChange" value="{{index}}" range="{{cityArr}}" range-key='name'>
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{city}}">
+         <text class="name">{{city.name}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择市</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+   <picker bindchange="bindAreaChange" value="{{index}}" range="{{areaArr}}" range-key='name'>
+    <view class="picker">
+       <text class="flex_start_v" wx:if="{{area}}">
+         <text class="name">{{area.name}}</text>
+         <text class="down"></text>  
+      </text>
+       <text class="flex_start_v" wx:else>
+          <text class="grey name">请选择区</text>
+          <text class="down"></text>
+       </text>
+    </view>
+  </picker>
+      </view>
+      <view class="list flex_between_v">
+      <view class='title'>需要收到人数:</view>
+      <view class='val'>
+         <input class="textRight" placeholder="单行输入"></input>
+      </view>
+      </view>
+      <view class="listInfo textRight">
+          单位：10万人
+      </view>
+      <view class="list flex_between_v mt40">
+      <view class='title'>标题</view>
+      <view class='val'>
+         <input class="textRight" placeholder="单行输入"></input>
+      </view>
+      </view>
+      <view class="title">
+        备注
+    </view>
+    <view class="val ftextrea">
+           <view class='toolbar' bindtap="format">
+        <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
+        <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
+        <i class="iconfont icon-zitishanchuxian {{formats.strike ? 'ql-active' : ''}}" data-name="strike"></i>
+        <i class="iconfont icon-outdent" data-name="indent" data-value="-1"></i>
+        <i class="iconfont icon-indent" data-name="indent" data-value="+1"></i>
+        <i class="iconfont icon-fengexian" bindtap="insertDivider"></i>
+        <i class="iconfont icon-charutupian" bindtap="insertImage"></i>
+      </view>
+      <editor id="editor" class="ql-container" placeholder="提示信息" showImgSize showImgToolbar showImgResize bindinput="getEditorValue"  bindready="onEditorReady">
+      </editor>
+    </view>
+  </view>
+  <view class="foote">
+      <button class="blueBtn">确认发布</button>
+  </view>
+</view>

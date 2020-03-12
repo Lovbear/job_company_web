@@ -1,0 +1,19 @@
+<!--pages/proDetail/index.wxml-->
+<view class="proDetail">
+    <view class="flex_between_v list">
+      <view class="label">
+          头像
+      </view>
+      <view class="val">
+        <image class="picHeader" src='{{userInfo.image}}'></image>
+      </view>
+    </view>
+     <view class="flex_between_v list" bindtap="toRelax">
+      <view class="label">
+          昵称
+      </view>
+      <view class="val">
+          {{userInfo.nickName}}
+      </view>
+    </view>
+</view>

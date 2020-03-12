@@ -1,0 +1,12 @@
+<import src="../template/template" />
+<view class="mine">
+  <view class="top">
+   <template is="userHr" data="{{userInfo}}"></template>
+  </view>
+  <view class="menu">
+      <template is='menu-item' wx:for="{{menuList}}" data="{{item}}" wx:key='index'/>    
+  </view>
+</view>
+
+<import src='../template/footer' />
+<template is='footer' data="{{footIndex}}"></template>
