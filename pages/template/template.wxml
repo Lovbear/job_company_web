@@ -340,7 +340,14 @@
           <image src="{{item.iconPath}}" class="icon_menu"></image>
           {{item.label}}
       </view>
-      <!-- <view class="right-arrow"></view> -->
+      <view class="right flex_start_v">
+          <view class="status" wx:if="{{item.label=='系统认证'}}">  {{userInfo.status==0?"未认证":''}}
+           {{userInfo.status==1?"待认证":''}}
+           {{userInfo.status==2?"通过":''}}
+
+          </view>
+          <view class="right-arrow"></view>
+      </view>
   </view>
 </template>
 
@@ -406,7 +413,7 @@
         </button>
         <view class="userInfo" bindtap="toDetail">
             <view class="flex_start_v">
-              <view class="name">{{userInfo.nickName}}</view>
+              <view class="name">{{userInfo.nickName?userInfo.nickName:''}}</view>
               <view class="tel flex_start_v">
               <image class="icon_contact" src="../static/images/ic_phone_1.png" ></image> {{userInfo.phone}}
               </view>
@@ -432,7 +439,7 @@
         </view>
         <view class="userInfo">
             <view class="flex_start_v">
-              <view class="name">{{item.nickName}}</view>
+              <view class="name">{{item.nick?item.nick:item.nickName}}</view>
 
             </view>
             <view class="info">

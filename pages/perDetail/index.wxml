@@ -13,7 +13,7 @@
           昵称
       </view>
       <view class="val">
-          {{userInfo.nickName}}
+          {{userInfo.nickName?userInfo.nickName:userInfo.nick}}
       </view>
     </view>
 </view>

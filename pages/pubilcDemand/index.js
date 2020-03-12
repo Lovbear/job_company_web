@@ -1,4 +1,5 @@
 import city from "../../utils/city.js"
+import req from "../../utils/request.js"
 Page({
 
   /**
@@ -16,7 +17,12 @@ Page({
     placeholder: '开始输入...',
     editorHeight: 300,
     keyboardHeight: 0,
-    isIOS: false
+    isIOS: false,
+    form:{
+      number:'',
+      title:'',
+      context:""
+    }
   },
 
   /**
@@ -127,7 +133,7 @@ Page({
           },
           width: '80%',
           success: function () {
-            console.log('insert image success')
+             console.log('insert image success')
           }
         })
       }
@@ -196,5 +202,53 @@ Page({
         this.setData({
           area: this.data.areaArr[e.detail.value]
         })
-  }
+  },
+  getEditorValue(e){
+    console.log(e.detail.html)
+    this.data.form.context = e.detail.html;
+      
+  },
+  bindinput(e){
+      console.log(e)
+    let item = e.currentTarget.dataset.item;
+    this.data.form[item]=e.detail.value;
+  },
+  uploadPic() {
+    let that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        console.log(res.tempFilePaths)
+        const tempFilePaths = res.tempFilePaths
+        wx.uploadFile({
+          url: 'http://47.114.5.246/job/upload/fileImage',
+          header: {
+            "token": wx.getStorageSync("token"),
+            "accountId": wx.getStorageSync("accountId")
+          },
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: null,
+          success(res) {
+            let data = JSON.parse(res.data);
+            that.data.form.payPic = data.data;
+          }
+        })
+      }
+    })
+  },
+  submit(){
+    let that = this;
+      let data = this.data.form;
+    data['level'] = that.data.province.name + "/" + that.data.city.name +"/"+that.data.area.name;
+      wx.setStorageSync("demandInfo", data)
+      wx.navigateTo({
+        url: "/pages/payAuth/index",
+      })
+        
+      
+  } 
 })

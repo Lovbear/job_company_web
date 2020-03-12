@@ -14,8 +14,10 @@ Page({
     ],
     hasMoreData:false
   },
-  onReady: function () {
+  onLoad(){
     this.getInfo();
+  },
+  onReady: function () {
     const arr = []
     for (let i = 0; i < 100; i++) arr.push(i)
     this.setData({
@@ -69,7 +71,13 @@ Page({
   },
   getInfo(){
     let that=this;
-    req.request.auth("/bms/list").then(res=>{
+    let url = '/bms/list';
+    let type = "POST"
+    if (wx.getStorageSync("userType")==2){
+      url ='/gms/user/getUsers';
+      type="GET"
+    }
+    req.request.auth(url,"", type).then(res=>{
         if(res.data.code=="0"){
             that.setData({
               datalist:res.data.data

@@ -3,7 +3,7 @@
   <view class="list flex_between_v">
       <view class='title'>单位名称</view>
       <view class='val'>
-         <input class="textRight" placeholder="单行输入"></input>
+         <input bindinput='bindinput' data-item='name' value="{{form.name}}" class="textRight" placeholder="单行输入"></input>
       </view>
   </view>
   <view class="list flex_between_v">
@@ -67,19 +67,19 @@
   <view class="list flex_between_v">
       <view class='title'>联系人</view>
       <view class='val'>
-         <input class="textRight" placeholder="单行输入"></input>
+         <input bindinput='bindinput' data-item='linkman' value="{{form.linkman}}" class="textRight" placeholder="单行输入"></input>
       </view>
   </view>
   <view class="list flex_between_v">
       <view class='title'>联系电话</view>
       <view class='val'>
-         <input class="textRight" placeholder="单行输入"></input>
+         <input class="textRight" bindinput='bindinput' data-item='tel' value="{{form.tel}}"  placeholder="单行输入"></input>
       </view>
   </view>
 
   
   <view class='foote'>
-      <button class="blueBtn">确定提交</button>
+      <button class="blueBtn" bindtap="submit">确定提交</button>
   </view>
 </view>
 

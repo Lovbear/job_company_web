@@ -74,7 +74,14 @@ Page({
   },
   submit(){
     let that = this;
-    req.request.auth("/bms/addUser",that.data.userInfo).then(res=>{
+    let url = "/bms/addUser";
+    let data = that.data.userInfo;
+    if (wx.getStorageSync('userType')==2){
+        data['nick'] = that.data.userInfo.nickName;
+        delete data['nickName']
+        url = "/gms/user/addUser"
+    }
+    req.request.auth(url,that.data.userInfo).then(res=>{
         if(res.data.code=='0'){
           wx.setStorageSync("userInfo",that.data.userInfo)
           var pages = getCurrentPages(); // 当前页面

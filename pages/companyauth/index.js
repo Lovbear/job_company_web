@@ -149,7 +149,7 @@ Page({
         console.log(res.tempFilePaths)
         const tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: 'http://47.114.5.246/job/upload/file',
+          url: 'http://47.114.5.246/job/upload/fileImag',
           header: {
             "token": wx.getStorageSync("token"),
             "accountId": wx.getStorageSync("accountId")

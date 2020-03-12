@@ -1,3 +1,4 @@
+import req from "../../utils/request.js";
 import city from "../../utils/city.js"
 Page({
 
@@ -28,6 +29,11 @@ Page({
     province: '',
     city: "",
     area: '',
+    form:{
+      name:'',
+      linkman:"",
+      tel:''
+    }
   },
 
   /**
@@ -110,6 +116,35 @@ Page({
   bindLevelChange(e){
     this.setData({
       level: this.data.levelArr[e.detail.value]
+    })
+  },
+  bindinput(e) {
+    const item = e.currentTarget.dataset.item;
+    this.data.form[item] = e.detail.value;
+  },
+  submit() {
+    let that = this;
+    let url = "/gms/govern/updateInfo";
+    let data = {
+      "addressCity":that.data.city,
+      "addressProvince":that.data.province,
+      "addressRegion": that.data.area,
+      "level": that.data.province + "/" + that.data.city + "/" + that.data.area
+    };
+    data=Object.assign(data,that.data.form)
+    req.request.auth("/gms/govern/add", data).then(res => {
+      if (res.data.code == '0') {
+        wx.setStorageSync("userInfo", that.data.userInfo)
+        var pages = getCurrentPages(); // 当前页面
+        var beforePage = pages[pages.length - 2]; // 前一个页面
+        // console.log("beforePage");
+        // console.log(beforePage);
+        wx.navigateBack({
+          success: function () {
+            beforePage.onReady(); // 执行前一个页面的onLoad方法
+          }
+        });
+      }
     })
   }
 })

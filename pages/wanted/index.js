@@ -24,22 +24,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      
+    this.getInfo();
   },
   getInfo(){
     let that =this;
-    req.request.auth('/bms/jobFair',"","GET").then(res => {
+    req.request.auth('/bms/jobFair',"","GET").then(res => {   
+        console.log(res.data.code,22)
           if(res.data.code=="0"){
             if (res.data.data && res.data.data.bmsCompanyInfoVO){
               that.setData({
                   companyInfo: res.data.data.bmsCompanyInfoVO,
                   memberList:res.data.data.cmsResumeExtVOList
               })
-            }else{
-              wx.navigateTo({
-                url: "/pages/editCompany/index"
-              })
             }
+          }else {
+            wx.navigateTo({
+              url: "/pages/editCompany/index"
+            })
           }
     })
   },
@@ -61,7 +62,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getInfo();
     this.vedioContent = wx.createVideoContext('myVideo');
   },
 
@@ -90,6 +90,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.getInfo();
       wx.stopPullDownRefresh()
   },
 

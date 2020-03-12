@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/main/index",
+    "pages/pubilcDemand/index",
+    "pages/payAuth/index",
     "pages/wanted/index",
     "pages/faceChange/index",
     "pages/faceDetail/index",
@@ -11,7 +13,6 @@
     "pages/perDetail/index",
     "pages/proDetail/index",
     "pages/hotPost/index",
-    "pages/pubilcDemand/index",
     "pages/frimAuth/index",
     "pages/mine/index",
     "pages/gmine/index",
@@ -33,7 +34,8 @@
     "pages/addmember/index",
     "pages/companyMember/index",
     "pages/publicJob/index",
-    "pages/company/index"
+    "pages/company/index",
+    "pages/dwxx/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

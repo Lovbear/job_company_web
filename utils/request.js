@@ -7,10 +7,10 @@ function request(url, methods = "GET", data = {}, header = {}) {
     title: '加载中',
     mask: true
   });
-
+  //"http://www.haofanshop.com/job" http://47.114.5.246/job
   return new Promise((resolve, rejects) => {
     wx.request({
-      url:"http://47.114.5.246/job"+url,
+      url:"http://www.haofanshop.com/job"+url,
       data,
       method: methods,
       header,

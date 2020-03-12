@@ -4,7 +4,7 @@
    <template is="userHr" data="{{userInfo}}"></template>
   </view>
   <view class="menu">
-      <template is='menu-item' wx:for="{{menuList}}" data="{{item}}" wx:key='index'/>    
+      <template is='menu-item' wx:for="{{menuList}}" data="{{item,userInfo}}" wx:key='index'/>    
   </view>
 </view>
 

@@ -11,28 +11,28 @@ Page({
       menuList:[
         {
           label:"发布需求单",
-          iconPath: "../static/images/mine/ic_parse.png",
-          link:'/pages/myParse/index'
+          iconPath: "../static/images/mine/ic_demand.png",
+          link:'/pages/pubilcDemand/index'
         },
         {
           label: "单位账号",
-          iconPath: "../static/images/mine/ic_msg.png",
-          link: '/pages/company/index'
+          iconPath: "../static/images/mine/ic_express.png",
+          link: '/pages/companyMember/index'
         },
         {
           label: "推广链接",
-          iconPath: "../static/images/mine/ic_company.png",
+          iconPath: "../static/images/mine/ic_tg.png",
           link: '/pages/companyMember/index'
         },
         {
           label: "单位信息",
-          iconPath: "../static/images/mine/ic_list.png",
-          link: '/pages/hotPost/index'
+          iconPath: "../static/images/mine/ic_msg.png",
+          link: '/pages/dwxx/index'
         },
         {
           label: "系统认证",
-          iconPath: "../static/images/ic_public.png",
-          link: '/pages/publicJob/index'
+          iconPath: "../static/images/ic_auth.png",
+          link: '/pages/frimAuth/index'
         }
       ]
   },
@@ -42,13 +42,6 @@ Page({
    */
   onLoad: function (options) {
     this.getInfo();
-  },
-  getUserInfo: function (e) {
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -101,7 +94,7 @@ Page({
 
   getInfo(){
     let that = this;
-    req.request.auth("/bms/myInfo").then(res => {
+    req.request.auth("/gms/user/getUserInfo",'',"GET").then(res => {
         if(res.data.code=="0"){
           wx.setStorageSync("userInfo", res.data.data)
           that.setData({
@@ -111,12 +104,7 @@ Page({
     })
   },
 
-  jump(e){
-      console.log(e)
-      wx.navigateTo({
-        url: e.currentTarget.dataset.link
-      })
-  },
+
   toDetail(){
     wx.navigateTo({
       url: "/pages/perDetail/index"
@@ -126,16 +114,28 @@ Page({
     let that= this;
     if (e.detail.userInfo) {
       console.log(e.detail.userInfo)
-        that.setData({
-          userInfo: e.detail.userInfo
-        })
-      //  that.getInfo();
+      let data = {
+        "nickname": e.detail.userInfo.nickName,
+        "avatarUrl": e.detail.userInfo.avatarUrl
+      }
+      req.request.auth("/wechat/saveWechatUser", data).then(res => {
+        if (res.data.code == "0") {
+          that.getInfo();
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'warn',
+            duration: 2000
+          })
+        }
+      })
     }
   },
   jump(e){
     console.log(e)
+    if(e.currentTarget.dataset.index){
     let index = e.currentTarget.dataset.index;
-    if (index == this.data.footIndex) {
+    if(index == this.data.footIndex) {
       return;
     }
     let path = '';
@@ -158,5 +158,11 @@ Page({
       default:
         break;
     }
+    }else{
+      wx.navigateTo({
+        url: e.currentTarget.dataset.link
+      })
+    }
+
   }
 })

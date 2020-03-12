@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-      userInfo:''
+      userInfo:{
+        nickName:''
+      }
   },
 
   /**
@@ -67,12 +69,18 @@ Page({
     
   },
   bindinput(e){
-    console.log(e)
     const item = e.currentTarget.dataset.item;
     this.data.userInfo[item] = e.detail.value;
   },
   submit(){
     let that = this;
+    let url = "/bms/updateMyInfo"
+    if(wx.getStorageSync("userType")==2){
+      url ="/gms/user/updateInfo"
+      that.data.userInfo['nick'] = that.data.userInfo.nickName;
+    }else{
+
+    }
     req.request.auth("/bms/updateMyInfo",that.data.userInfo).then(res=>{
         if(res.data.code=='0'){
           wx.setStorageSync("userInfo",that.data.userInfo)

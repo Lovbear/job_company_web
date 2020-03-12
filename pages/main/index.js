@@ -79,14 +79,14 @@ Page({
          let obj = {
            encryptedData: e.detail.encryptedData,
            iv: e.detail.iv,
-           sessionKey: app.globalData.getInfo.session_key
+           sessionKey: app.globalData.getInfo.session_key,
+           userType:type==1?3:2
          }
       that.decrypt(obj, type);
     }
   },
   decrypt(data, type) {
     req.request.auth("/wechat/decrypt", data).then(res => {
-      console.log(res)
       if(type==1){
         wx.switchTab({
           url: '/pages/wanted/index',

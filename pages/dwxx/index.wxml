@@ -1,0 +1,10 @@
+<import src='../template/template' />
+<view class="refresh">下拉刷新</view>
+<view class='companyDetail'>
+    <template is='company' data='{{company,show}}'></template>
+    <view class="page-body">
+        <template is="vedio" data="{{company,isShow}}"></template>
+    </view>
+    
+
+</view>

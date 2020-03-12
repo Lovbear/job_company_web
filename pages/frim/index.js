@@ -48,6 +48,7 @@ Page({
    */
   onLoad: function (options) {
       this.getlist();
+    this.getFrimInfo();
   },
 
   /**
@@ -75,7 +76,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**
@@ -103,6 +104,16 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getFrimInfo(){
+    req.request.auth("/gms/govern/getGovernDetail",'','GET').then(res=>{
+      if(res.data.code=='0'){
+
+      }else{
+
+      }
+    })
   },
 
   getlist(type){

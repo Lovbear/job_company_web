@@ -28,7 +28,7 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        request("/wechat/authcode", "POST", { appId: "wxcf5a4df7ba19fc5d", authCode: res.code, userType:3 }).then(res => {
+        request("/wechat/authcode", "POST", { appId: "wxdd4d3bf1f10c456c", authCode: res.code, userType:3 }).then(res => {
           console.log(res)
           if (res.data.code=="0"){
               wx.setStorage({

@@ -45,7 +45,7 @@
       <view class="list flex_between_v">
       <view class='title'>需要收到人数:</view>
       <view class='val'>
-         <input class="textRight" placeholder="单行输入"></input>
+         <input type="number" data-item="number" bindinput="bindinput" value="{{form.number}}" class="textRight" placeholder="单行输入"></input>
       </view>
       </view>
       <view class="listInfo textRight">
@@ -54,7 +54,7 @@
       <view class="list flex_between_v mt40">
       <view class='title'>标题</view>
       <view class='val'>
-         <input class="textRight" placeholder="单行输入"></input>
+         <input data-item="title" bindinput="bindinput" value="{{form.title}}"  class="textRight" placeholder="单行输入"></input>
       </view>
       </view>
       <view class="title">
@@ -74,7 +74,8 @@
       </editor>
     </view>
   </view>
+  
   <view class="foote">
-      <button class="blueBtn">确认发布</button>
+      <button class="blueBtn" bindtap="submit">确认发布</button>
   </view>
 </view>

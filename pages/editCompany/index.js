@@ -246,7 +246,7 @@ Page({
         console.log(res.tempFilePaths)
         const tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: 'http://47.114.5.246/job/upload/fileImage', 
+          url: 'http://www.haofanshop.com/job/upload/fileImage', 
           header:{
             "token": wx.getStorageSync("token"),
             "accountId": wx.getStorageSync("accountId")
@@ -277,7 +277,7 @@ Page({
         console.log(res.tempFilePath)
         const tempFilePath = res.tempFilePath
         wx.uploadFile({
-          url: 'http://47.114.5.246/job/upload/fileVideo',
+          url: 'http://www.haofanshop.com/job/upload/fileVideo',
           header: {
             "token": wx.getStorageSync("token"),
             "accountId": wx.getStorageSync("accountId")

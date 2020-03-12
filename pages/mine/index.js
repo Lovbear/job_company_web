@@ -53,13 +53,7 @@ Page({
   onLoad: function (options) {
     this.getInfo();
   },
-  getUserInfo: function (e) {
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
+    
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -136,10 +130,23 @@ Page({
     let that= this;
     if (e.detail.userInfo) {
       console.log(e.detail.userInfo)
-        that.setData({
-          userInfo: e.detail.userInfo
-        })
-      //  that.getInfo();
+      let data = {
+        "nickname": e.detail.userInfo.nickName,
+        "avatarUrl": e.detail.userInfo.avatarUrl
+      }
+      req.request.auth("/wechat/saveWechatUser", data).then(res => {
+        if (res.data.code == "0") {
+            setTimeout(()=>{
+              that.getInfo();
+            },1000)
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'warn',
+            duration: 2000
+          })
+        }
+      })
     }
   }
 })

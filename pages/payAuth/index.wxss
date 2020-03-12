@@ -1,0 +1,52 @@
+.title{
+  margin-top:94rpx;
+  text-align: center;
+  font-size:36r px;
+  font-family:PingFangSC-Medium,PingFang SC;
+  font-weight:500;
+  color:rgba(0,0,0,0.85);
+}
+
+.imgbox,.img{
+  margin: 50rpx auto;
+  width:486rpx;
+  height:488rpx;
+}
+
+.list{
+  padding: 0 30rpx;
+}
+
+.list .title{
+  padding: 30rpx 0;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(0,0,0,0.85);
+}
+
+.upload{
+  text-align: center;
+  height: 300rpx;
+  margin-bottom: 120rpx;
+}
+.upload .icon_up{
+  width: 100%;
+  height: 300rpx;
+}
+.upload .info{
+   font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(0,0,0,0.85);
+}
+
+.yyzz{
+  width: 100%;
+  height: 300rpx;
+}
+
+.radio{
+    margin: 0 40rpx;
+    text-align: center;
+}

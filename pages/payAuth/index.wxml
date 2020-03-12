@@ -1,0 +1,27 @@
+<view class="editDemand">
+    <view class="title">
+        订单总金额：20000元
+    </view>
+    <view class="imgbox">
+        <image src="{{imgList[currIndex]}}" class="img"></image>
+    </view>
+    <view class="radio">
+        <radio-group class="radio-group" bindchange="radioChange">
+                <radio color="#0188FB" class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                    <text>{{item.value}}</text>
+                </radio>
+            </radio-group>
+    </view>
+    <view class="list bordernone">
+      <view class='title'>上传支付截图</view>
+      <view class='imgBox' bindtap="uploadPic">
+          <image wx:if='{{form.payPic}}' src="{{form.payPic}}" class="yyzz"></image>
+          <view class="upload" wx:else>
+              <image src="./../static/images/pic_upImg.png" class="icon_up"></image>
+          </view>
+      </view>
+  </view>
+  <view class="foote">
+      <button class="blueBtn" bindtap="submit">确认上传</button>
+  </view>
+</view>

@@ -78,3 +78,33 @@
 .mt40{
   margin-top: 40rpx;
 }
+
+.list{
+  padding: 0 30rpx;
+}
+
+.list .title{
+  padding: 30rpx 0;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(0,0,0,0.85);
+}
+
+.upload{
+  text-align: center;
+  height: 300rpx;
+  border:2rpx solid #bdbdbd;
+  margin-bottom: 120rpx;
+}
+.upload .icon_up{
+  margin: 100rpx auto 30rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.upload .info{
+   font-size:26rpx;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+  color:rgba(0,0,0,0.85);
+}
